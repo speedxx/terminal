@@ -49,4 +49,5 @@ We plan to expand and create more commands for terminal. You may help us by post
 >blacklist,
 >gleave,
 >channelinfo,
->userinfo
+>userinfo,
+>warn

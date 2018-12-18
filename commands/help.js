@@ -147,6 +147,9 @@ module.exports.run = async (client, message, args) => {
      if (args.includes("unpin")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Unpin:** A command that unpins a message by it's ID. Usage: >_unpin (id)")
     } else {
+    if (args.includes("warn")) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Warn:** A command that warns an user by their DM. It will mention them in chat if failed. It should be used in which: "@mention is spamming". Usage: >_warn (mention) (reason)")
+    } else {
         
         
         let serverembed = new Discord.RichEmbed()
@@ -155,15 +158,15 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
         .addField("Bot Admins:", "`shutdown`, `blacklist`, `gleave`")
-        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`")
+        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
         .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`")
-        .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`");
-     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**")
+        .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
+     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
     
 };
 module.exports.help = {
