@@ -148,7 +148,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Unpin:** A command that unpins a message by it's ID. Usage: >_unpin (id)")
     } else {
     if (args.includes("warn")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Warn:** A command that warns an user by their DM. It will mention them in chat if failed. It should be used in which: "@mention is spamming". Usage: >_warn (mention) (reason)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Warn:** A command that warns an user by their DM. It will mention them in chat if failed. It should be used in which: `@mention is spamming`. Usage: >_warn (mention) (reason)")
     } else {
         
         
