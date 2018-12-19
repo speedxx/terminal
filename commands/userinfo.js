@@ -1,9 +1,23 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-    let user = message.mentions.users.first();
 
-    if (user === undefined) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** " + "Please provide a mention")
+    if (!message.mentions.users.size) 
+    try {
+        const embed = new Discord.RichEmbed()
+            .setColor(0x9e80e8)
+            .setAuthor(message.author.tag)
+            .setThumbnail(message.author.displayAvatarURL, true)
+            .addField("Discriminator", message.author.discriminator, true)
+            .addField("ID", message.author.id, true)
+            .addField("Presence", message.author.presence.status, true)
+            .addField("Account Creation", message.author.createdAt, true)
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**")
+            message.channel.send(embed)
+        } catch (err) {
+                }
+
+    let user = message.mentions.users.first();
     let userembed = new Discord.RichEmbed()
         .setTitle(`User Information for ${user.username}`)
         .setThumbnail(user.displayAvatarURL, true)
