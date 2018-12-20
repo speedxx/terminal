@@ -3,12 +3,6 @@ const client = new Discord.Client({disableEveryone: true});
 const config = require("./config.json");
 const fs = require("fs");
 
-const active = new Map();
-let ops = 
-{
-  active: active
-}
-
 client.commands = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => {
   if (err) console.error(err);
