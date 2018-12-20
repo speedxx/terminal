@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
       };
     }
     let prefix = prefixjson[message.guild.id].prefix
-  
+
     if (args.includes("kick")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Kick:** A command that kicks an user. Usage: >_kick (user)")
     } else {
@@ -153,17 +153,14 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("createchannel")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Create Channel:** A command that creates a channel. Usage: >_createchannel (name)")
     } else {
-    if (args.includes("restart")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Restart:** [Bot admin command] A command that restarts the bot. Usage: >_restart")
-    } else {
-        
-        
+
+
         let serverembed = new Discord.RichEmbed()
         .setColor(Math.floor(Math.random() * 16777214) + 1)
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
         .setTitle("Commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`shutdown`, `blacklist`, `gleave`, `restart`")
+        .addField("Bot Admins:", "`shutdown`, `blacklist`, `gleave`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
@@ -172,8 +169,8 @@ module.exports.run = async (client, message, args) => {
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-    
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
 };
 module.exports.help = {
     name: "help"
