@@ -153,14 +153,16 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("createchannel")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Create Channel:** A command that creates a channel. Usage: >_createchannel (name)")
     } else {
-        
-        
+        fs.readdir("./commands/", (err, files) => {
+
+        let jsfiles = files.filter(f => f.split(".").pop() === "js");
+
         let serverembed = new Discord.RichEmbed()
         .setColor(Math.floor(Math.random() * 16777214) + 1)
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
-        .setTitle("Commands:")
+        .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`shutdown`, `blacklist`, `gleave`")
+        .addField("Bot Admins:", "`shutdown`, `restart`, `blacklist`, `gleave`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
@@ -169,7 +171,7 @@ module.exports.run = async (client, message, args) => {
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
     
 };
 module.exports.help = {
