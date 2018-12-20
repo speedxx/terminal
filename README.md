@@ -51,4 +51,5 @@ We plan to expand and create more commands for terminal. You may help us by post
 >channelinfo,
 >userinfo,
 >warn,
->createchannel
+>createchannel,
+>restart
