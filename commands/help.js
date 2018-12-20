@@ -153,6 +153,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("createchannel")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Create Channel:** A command that creates a channel. Usage: >_createchannel (name)")
     } else {
+    if (args.includes("reload")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Reload:** [Bot admin command] A command that reloads all commands. Usage: >_reload")
+    } else {
         fs.readdir("./commands/", (err, files) => {
 
         let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -171,7 +174,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
