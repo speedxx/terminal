@@ -161,7 +161,7 @@ module.exports.run = async (client, message, args) => {
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`shutdown`, `restart`, `blacklist`, `gleave`")
+        .addField("Bot Admins:", "`shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
