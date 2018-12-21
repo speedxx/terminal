@@ -53,4 +53,6 @@ We plan to expand and create more commands for terminal. You may help us by post
 >warn,
 >createchannel,
 >restart,
->reload
+>reload,
+>nick,
+>activity
