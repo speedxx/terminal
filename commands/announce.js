@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
     if (!args || args.length < 1) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please put an announcement channel and a message.")
     }
-    let embedmsg = args.slice(0).join(" ");
+    let embedmsg = args.splice(1).join(' ');
     let announceembed = new Discord.RichEmbed()
     .setColor(Math.floor(Math.random() * 16777214) + 1)
     .setAuthor('Announement from: ' + message.author.username)
