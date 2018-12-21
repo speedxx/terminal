@@ -7,7 +7,7 @@ https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&
 square#1255, speed#5496
 
 # Future plans?
-We plan to expand and create more commands for terminal. You may help us by posting [issues] (https://github.com/squareGITHUB/terminal/issues) we didn't notice or creating [pull requests](https://github.com/squareGITHUB/terminal/pulls).
+We plan to expand and create more commands for terminal. You may help us by posting [issues](https://github.com/squareGITHUB/terminal/issues) we didn't notice or creating [pull requests](https://github.com/squareGITHUB/terminal/pulls).
 
 # Current commands
 >kick, 
