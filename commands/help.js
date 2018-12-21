@@ -156,6 +156,13 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("reload")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Reload:** [Bot admin command] A command that reloads all commands. Usage: >_reload")
     } else {
+    if (args.includes("nick")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nick:** A command that nicknames the bot to whatever you want it named. Usage: >_nick (name)")
+    } else {
+    if (args.includes("activity")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Activity:** A command that sets the bot activity to whatever you want the activity to be. Usage: >_activity (p/w/l) (activity)")
+    } else {
+
         fs.readdir("./commands/", (err, files) => {
 
         let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -169,12 +176,12 @@ module.exports.run = async (client, message, args) => {
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
-        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`")
+        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `activity`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
