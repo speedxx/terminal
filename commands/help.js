@@ -160,7 +160,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nick:** A command that nicknames the bot to whatever you want it named. Usage: >_nick (name)")
     } else {
     if (args.includes("activity")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Activity:** A command that sets the bot activity to whatever you want the activity to be. Usage: >_activity (p/w/l) (activity)")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Activity:** [Bot admin command] A command that sets the bot activity to whatever you want the activity to be. Usage: >_activity (p/w/l) (activity)")
     } else {
 
         fs.readdir("./commands/", (err, files) => {
@@ -171,12 +171,12 @@ module.exports.run = async (client, message, args) => {
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
+        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
-        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `activity`")
+        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
