@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({disableEveryone: true});
 const config = require("./config.json");
 const fs = require("fs");
+const ms = require("ms");
 
 client.commands = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => {
@@ -36,7 +37,7 @@ client.on('ready', () => {
   console.log(`Terminal booted up sucessfully.`);
 });
 
-client.on('message', message => {
+client.on('message', async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return message.author.send("**/" + message.author.username + "/DM** \n Sorry, but commands in my DMs have been disabled. Please try it in a server." )
   const Censor = require ("./commands/censor.js")
@@ -185,7 +186,7 @@ client.on('message', message => {
     message.delete()
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
   }}
-  
+
   let messageArray = message.content.split(" ");
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);

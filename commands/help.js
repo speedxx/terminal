@@ -85,7 +85,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Poll:** A command which creates a poll. Usage: >_poll (question)")
     } else {
     if (args.includes("timer")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Timer:** A command which creates a timer for seconds/minutes/days/months/years. Usage: >_timer (time)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Timer:** A command which creates a timer for seconds/minutes/days/months/years and adds a message. Usage: >_timer (time)")
     } else {
     if (args.includes("pause")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Pause:** A command that pauses the current song playing. Usage: >_pause")
