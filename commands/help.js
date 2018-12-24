@@ -162,6 +162,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("activity")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Activity:** [Bot admin command] A command that sets the bot activity to whatever you want the activity to be. Usage: >_activity (p/w/l) (activity)")
     } else {
+    if (args.includes("suggest")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Suggest:** A command that sends the bot developers your suggestions. Usage: >_suggest (suggestion)")
+    } else {
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -176,12 +179,12 @@ module.exports.run = async (client, message, args) => {
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
-        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`")
+        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
