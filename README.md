@@ -54,4 +54,5 @@ We plan to expand and create more commands for terminal. You may help us by post
 >restart,
 >reload,
 >nick,
->activity
+>activity,
+>suggest
