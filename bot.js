@@ -209,7 +209,7 @@ client.on('message', async message => {
   let fullCommand = message.content.substr(1) 
   let splitCommand = fullCommand.split(" ")
   let primaryCommand = splitCommand[0] 
-  console.log(`${message.author.username} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
+  console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
 }});
 
 client.login(config.token);
