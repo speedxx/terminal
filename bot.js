@@ -206,7 +206,10 @@ client.on('message', async message => {
       return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#5496 for more information.")
     }
   cmd.run(client, message, args);
-  console.log(`${message.author.username} (${message.author.id}) ran a command in the guild: ` + message.guild.id)
+  let fullCommand = message.content.substr(1) 
+  let splitCommand = fullCommand.split(" ")
+  let primaryCommand = splitCommand[0] 
+  console.log(`${message.author.username} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
 }});
 
 client.login(config.token);
