@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
+  if (message.author.id !== "372078453236957185")
+  if (message.author.id !== "365274392680333329") return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You are not a Terminal developer.")
+
 client.commands = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => {
   if (err) console.error(err);
@@ -18,7 +21,6 @@ fs.readdir("./commands/", (err, files) => {
 })
     console.log(`Manual restart successful.`)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Loaded all commands.")
-
 })}
   module.exports.help = {
     name: "reload"
