@@ -55,4 +55,5 @@ We plan to expand and create more commands for terminal. You may help us by post
 >reload,
 >nick,
 >activity,
->suggest
+>suggest,
+>roleinfo
