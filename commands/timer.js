@@ -21,6 +21,6 @@ setTimeout(function(){
 
 }, ms(Timer));
 }
-exports.help = {
+module.exports.help = {
   name: "timer",
 };
