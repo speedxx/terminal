@@ -168,6 +168,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("roleinfo")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Role Info:** A command that supplies all known information about a role. Usage: >_roleinfo (role)")
     } else {
+    if (args.includes("avatar")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Avatar:** A command that fetches a users avatar URL. Usage: >_avatar (mention)")
+    } else {
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -182,12 +185,12 @@ module.exports.run = async (client, message, args) => {
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `roleinfo`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
-        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`")
+        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
