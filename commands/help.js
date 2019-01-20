@@ -171,6 +171,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("avatar")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Avatar:** A command that fetches a users avatar URL. Usage: >_avatar (mention)")
     } else {
+    if (args.includes("say")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Say:** [Bot admin command] A command that repeats whatever you say. Usage: >_say (text)")
+    } else {
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -190,7 +193,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
