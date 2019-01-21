@@ -3,3 +3,4 @@
 *.json
 *robin gay
 .DS_Store
+node_modules/
