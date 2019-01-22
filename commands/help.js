@@ -177,6 +177,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("say")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Say:** [Bot admin command] A command that repeats whatever you say. Usage: >_say (text)")
     } else {
+    if (args.includes("host")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Host:** A command that tells you who is hosting the bot (e.g speed or square). Usage: >_host")
+    } else {
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -190,13 +193,13 @@ module.exports.run = async (client, message, args) => {
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `roleinfo`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
-        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
+        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `host`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
