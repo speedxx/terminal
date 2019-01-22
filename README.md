@@ -57,4 +57,5 @@ We plan to expand and create more commands for terminal. You may help us by post
 >activity,
 >suggest,
 >roleinfo,
->avatar
+>avatar,
+>host
