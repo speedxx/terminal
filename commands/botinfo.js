@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
       .addField("Bot guild size", bot.guilds.size)
       .addField("RAM usage", `${((process.memoryUsage().heapUsed / 1024) / 1024).toFixed(2)} MB`)
       .addField("Created on", bot.user.createdAt)
-      .addField("Created by", "square#1255, speed#5496")
+      .addField("Created by", "square#1255, speed#3413")
       .addField("Discord version", `${Discord.version}`)
       .addField("Node version", `${process.version}`);
 
