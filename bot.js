@@ -203,7 +203,7 @@ client.on('message', async message => {
       };
     }
     if (blacklist[message.author.id].person === 1) {
-      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#5496 for more information.")
+      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#3413 for more information.")
     }
   cmd.run(client, message, args);
   let fullCommand = message.content.substr(1) 
