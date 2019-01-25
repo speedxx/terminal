@@ -180,6 +180,10 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("host")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Host:** A command that tells you who is hosting the bot (e.g speed or square). Usage: >_host")
     } else {
+    if (args.includes("logs")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs any message edits/deletions/mentions. Usage: >_logs or >_logs on")
+    } else {
+    
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -192,14 +196,14 @@ module.exports.run = async (client, message, args) => {
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `roleinfo`")
-        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`")
+        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`, `logs`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `host`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
