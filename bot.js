@@ -38,6 +38,13 @@ client.on('ready', () => {
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
+  let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+  if (!logs[oldMessage.guild.id]) { 
+    logs[oldMessage.guild.id] = {
+      toggle: 0
+    };
+  }
+  if (logs[oldMessage.guild.id].toggle === 1) {
   let editchannel = "terminal-logs"
   if (oldMessage.author.id === "521023036812558356") {
     return
@@ -47,9 +54,17 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
       logedit.send("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  " + `The message : "${oldMessage.content}" by ${oldMessage.author.tag} was edited to "${newMessage.content}".`)
     } else {
       oldMessage.channel.send("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  " + `The message : "${oldMessage.content}" by ${oldMessage.author.tag} was edited to "${newMessage.content}". \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
- }}});
+ }}}
+});
 
-client.on("messageDelete", (messageDelete) => { 
+client.on("messageDelete", (messageDelete) => {
+  let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+  if (!logs[messageDelete.guild.id]) { 
+    logs[messageDelete.guild.id] = {
+      toggle: 0
+    };
+  } 
+  if (logs[messageDelete.guild.id].toggle === 1) {
   let deletechannel = "terminal-logs"
   if (messageDelete.author.id === "521023036812558356") {
     return
@@ -59,10 +74,10 @@ client.on("messageDelete", (messageDelete) => {
       logdelete.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
     } else {
       messageDelete.channel.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted. \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
- }}});
+ }}}
+});
 
 client.on('message', async message => {
-   
   if (message.author.bot) return;
   if (message.channel.type === "dm") return message.author.send("**/" + message.author.username + "/DM** \n Sorry, but commands in my DMs have been disabled. Please try it in a server." )
   const Censor = require ("./commands/censor.js")
