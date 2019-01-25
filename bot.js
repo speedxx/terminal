@@ -223,6 +223,7 @@ client.on('message', async message => {
   }
   if (invites[message.guild.id].block === 1) {
     if (message.content.toLowerCase().includes("discord.gg")) {
+      if (message.member.hasPermission("MANAGE_MESSAGES")) return
     message.delete()
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
   }}
