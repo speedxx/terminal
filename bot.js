@@ -152,6 +152,22 @@ client.on('message', async message => {
   }
   let prefix = prefixjson[message.guild.id].prefix
 
+  client.once("messageDelete", (messageDelete) => {
+    let deletechannel = "terminal-logs"
+    if (messageDelete.author != message.author) {
+      return
+    } else {
+    if (messageDelete.author.id === "521023036812558356") {
+      return
+    } else {
+      if (message.guild.channels.exists('name', deletechannel)) {
+        const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
+        logdelete.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
+    return;
+      } else {
+        message.channel.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted. \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
+   }}}});
+
   if (message.content.includes(prefix + "delete")) {
     if (message.author.bot) return;
     if (message.author.id != "372078453236957185") {
