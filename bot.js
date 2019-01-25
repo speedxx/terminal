@@ -37,7 +37,32 @@ client.on('ready', () => {
   console.log(`Terminal booted up sucessfully.`);
 });
 
+client.on('messageUpdate', (oldMessage, newMessage) => {
+  let editchannel = "terminal-logs"
+  if (oldMessage.author.id === "521023036812558356") {
+    return
+  } else {
+    if (oldMessage.guild.channels.exists('name', editchannel)) {
+      const logedit = oldMessage.guild.channels.find(channel => channel.name === "terminal-logs");
+      logedit.send("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  " + `The message : "${oldMessage.content}" by ${oldMessage.author.tag} was edited to "${newMessage.content}".`)
+    } else {
+      oldMessage.channel.send("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  " + `The message : "${oldMessage.content}" by ${oldMessage.author.tag} was edited to "${newMessage.content}". \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
+ }}});
+
+client.on("messageDelete", (messageDelete) => { 
+  let deletechannel = "terminal-logs"
+  if (messageDelete.author.id === "521023036812558356") {
+    return
+  } else {
+    if (messageDelete.guild.channels.exists('name', deletechannel)) {
+      const logdelete = messageDelete.guild.channels.find(channel => channel.name === "terminal-logs");
+      logdelete.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
+    } else {
+      messageDelete.channel.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted. \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
+ }}});
+
 client.on('message', async message => {
+   
   if (message.author.bot) return;
   if (message.channel.type === "dm") return message.author.send("**/" + message.author.username + "/DM** \n Sorry, but commands in my DMs have been disabled. Please try it in a server." )
   const Censor = require ("./commands/censor.js")
@@ -152,22 +177,6 @@ client.on('message', async message => {
   }
   let prefix = prefixjson[message.guild.id].prefix
 
-  client.once("messageDelete", (messageDelete) => {
-    let deletechannel = "terminal-logs"
-    if (messageDelete.author != message.author) {
-      return
-    } else {
-    if (messageDelete.author.id === "521023036812558356") {
-      return
-    } else {
-      if (message.guild.channels.exists('name', deletechannel)) {
-        const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
-        logdelete.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
-    return;
-      } else {
-        message.channel.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted. \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
-   }}}});
-
   if (message.content.includes(prefix + "delete")) {
     if (message.author.bot) return;
     if (message.author.id != "372078453236957185") {
@@ -227,5 +236,7 @@ client.on('message', async message => {
   let primaryCommand = splitCommand[0] 
   console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
 }});
+
+
 
 client.login(config.token);
