@@ -238,6 +238,9 @@ client.on('message', async message => {
 
   let cmd = client.commands.get(command.slice(prefix.length));
   if (cmd) {
+    let fullCommand = message.content.substr(1) 
+    let splitCommand = fullCommand.split(" ")
+    let primaryCommand = splitCommand[0]
     const Blacklist = require ("./commands/blacklist.js")
     let blacklist = JSON.parse(fs.readFileSync("./blacklist.json", "utf8"));
     if (!blacklist[message.author.id]) { 
@@ -248,10 +251,21 @@ client.on('message', async message => {
     if (blacklist[message.author.id].person === 1) {
       return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#3413 for more information.")
     }
-  cmd.run(client, message, args);
-  let fullCommand = message.content.substr(1) 
-  let splitCommand = fullCommand.split(" ")
-  let primaryCommand = splitCommand[0] 
+    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+    let deletechannel = "terminal-logs"
+      if (message.guild.channels.exists('name', deletechannel)) {
+        const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
+        logdelete.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `${message.author.tag} (${message.author.id}) ran >${primaryCommand}.`)
+      } else {
+           return   
+}}
+  cmd.run(client, message, args); 
   console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
 }});
 
