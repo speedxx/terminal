@@ -196,8 +196,9 @@ client.on('message', async message => {
     if (message.author.bot) return;
     if (message.author.id != "372078453236957185") {
       if (message.author.id != "365274392680333329") {
+        if (message.author.id != "508352711507443712") {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**" + "You may not run this command.")
-    }}
+    }}}
     message.channel.bulkDelete(2);
   }
   const Lockdown = require ("./commands/lockdown.js")
@@ -210,6 +211,7 @@ client.on('message', async message => {
   if (message.channel.id === (lockdown[message.guild.id].lock)) {
     if (message.author.id === "372078453236957185") return
     if (message.author.id === "365274392680333329") return
+    if (message.author.id === "508352711507443712") return
     if (message.author.id === "521023036812558356") return
     if (message.member.hasPermission("MANAGE_MESSAGES")) return
     message.delete()
