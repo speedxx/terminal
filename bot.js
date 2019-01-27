@@ -269,6 +269,4 @@ client.on('message', async message => {
   console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
 }});
 
-
-
 client.login(config.token);
