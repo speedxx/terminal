@@ -228,6 +228,8 @@ client.on('message', async message => {
       if (message.member.hasPermission("MANAGE_MESSAGES")) return
     message.delete()
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
+    const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
+    logdelete.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `${message.author} tried posting an invite in channel **${message.channel.name}**.`)
   }}
 
   let messageArray = message.content.split(" ");
