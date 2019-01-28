@@ -181,7 +181,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Host:** A command that tells you who is hosting the bot (e.g speed or square). Usage: >_host")
     } else {
     if (args.includes("logs")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs any message edits/deletions/mentions. Usage: >_logs or >_logs on")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs any message edits/deletions/invites. Usage: >_logs or >_logs on")
     } else {
     
 
