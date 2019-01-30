@@ -3,7 +3,6 @@ const fs = require("fs");
 module.exports.run = async (bot, message, args) => {
 	if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to toggle the log channel.");
 	let log = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
-
 	if (!args[0]) { 
 		log[message.guild.id] = {
 			toggle: 0

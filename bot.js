@@ -87,6 +87,16 @@ client.on('message', async message => {
       word: "terminal sucks"
     };
   }
+  let watch = JSON.parse(fs.readFileSync("./watch.json", "utf8"));
+  if (!watch[message.guild.id]) {
+    watch[message.guild.id] = {
+			toggle: 0
+		};
+  }
+  if (message.channel.id === watch[message.guild.id].toggle) {
+    const watchmsg = message.guild.channels.find(channel => channel.name === "terminal-logs");
+    watchmsg.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `There was a message in the watchlisted channel by ` + message.author.tag + ' (' + message.author.id + ') which contains: ' + message.content)
+  }
   if (message.content.toLowerCase().includes(censor[message.guild.id].word)) {
     message.delete(50)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot say that word as administrators have blocked it!")
