@@ -87,6 +87,16 @@ client.on('message', async message => {
       word: "terminal sucks"
     };
   }
+  let whitelist = JSON.parse(fs.readFileSync("./whitelist.json", "utf8"));
+  if (!whitelist[message.guild.id]) {
+    whitelist[message.guild.id] = {
+			toggle: 0
+		};
+  whitelist[message.guild.id] = {
+    channel: "none"
+  };
+}
+
   let watch = JSON.parse(fs.readFileSync("./watch.json", "utf8"));
   if (!watch[message.guild.id]) {
     watch[message.guild.id] = {
@@ -235,6 +245,14 @@ client.on('message', async message => {
   }
   if (invites[message.guild.id].block === 1) {
     if (message.content.toLowerCase().includes("discord.gg")) {
+      if (message.channel.id === whitelist[message.guild.id].channel) {
+        if (whitelist[message.guild.id].toggle === 2) {
+        return
+      } else {
+        if (whitelist[message.guild.id].toggle === 3) {
+          return
+        }
+      }}
       if (message.member.hasPermission("MANAGE_MESSAGES")) return
     message.delete()
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
@@ -263,6 +281,9 @@ client.on('message', async message => {
     if (blacklist[message.author.id].person === 1) {
       return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#3413 for more information.")
     }
+    cmd.run(client, message, args); 
+    console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
+
     let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
     if (!logs[message.guild.id]) { 
       logs[message.guild.id] = {
@@ -270,6 +291,14 @@ client.on('message', async message => {
       };
     } 
     if (logs[message.guild.id].toggle === 1) {
+      if (message.channel.id === whitelist[message.guild.id].channel) {
+        if (whitelist[message.guild.id].toggle === 1) {
+        return
+      } else {
+        if (whitelist[message.guild.id].toggle === 3) {
+          return
+        }
+      }}
     let deletechannel = "terminal-logs"
       if (message.guild.channels.exists('name', deletechannel)) {
         const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
@@ -277,8 +306,7 @@ client.on('message', async message => {
       } else {
            return   
 }}
-  cmd.run(client, message, args); 
-  console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
+ 
 }});
 
 client.login(config.token);
