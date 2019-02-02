@@ -122,8 +122,8 @@ client.on('message', async message => {
 
 
     // This section will contain swears!
-let swearwords = ["fuck", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "heck","frick", "shit", "nigg", "niga","niger", "negro", "whore", "twat"]
-if(message.content.includes(swearwords)) {
+let swearwords = ["fuck" || "ass" || "bastard" || "bitch" || "slut" || "pussy" || "dick" || "penis" || "bollocks" || "crap" || "cunt" || "frigger" || "heck" || "frick" || "shit" || "nigg" || "niga" || "niger" || "negro" || "whore" || "twat"]
+if (message.content.toLowerCase().includes(swearwords)) {
 message.delete();
 message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${message.author}, you cannot swear as this server is in PG mode!**`)
 }
@@ -138,7 +138,7 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
   }
   let prefix = prefixjson[message.guild.id].prefix
 
-  if (message.content.includes(prefix + "delete")) {
+  if (message.content.toLowerCase().includes(prefix + "delete")) {
     if (message.author.bot) return;
     if (message.author.id != "372078453236957185") {
       if (message.author.id != "365274392680333329") {
@@ -206,9 +206,11 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
     }
   }
 
-let args = message.content.slice(prefix.length).trim().split(/\s+/g);
-        let cmd = args.shift().toLowerCase();
-        let command = client.commands.get(cmd)
+
+let messageArray = message.content.split(" ");
+let command = messageArray[0].toLowerCase();
+let args = messageArray.slice(1);
+let cmd = client.commands.get(command.slice(prefix.length));
 
   if (!command.startsWith(prefix)) return;
   if (cmd) {
