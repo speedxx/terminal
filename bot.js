@@ -260,6 +260,23 @@ client.on('message', async message => {
     logdelete.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `${message.author} tried posting an invite in channel **${message.channel.name}**.`)
   }}
 
+  const Autoreact = require ("./commands/autoreact.js")
+  let autoreact = JSON.parse(fs.readFileSync("./autoreact.json", "utf8"));
+  if (!autoreact[message.guild.id]) { 
+    autoreact[message.guild.id] = {
+      toggle: 0,
+      emoji: 0,
+      channel: 0
+    };
+  }
+  if (autoreact[message.guild.id]) {
+    if (autoreact[message.guild.id].toggle === 1) {
+    if (autoreact[message.guild.id].channel === message.channel.id) {
+       message.react(autoreact[message.guild.id].emoji)
+      }
+    }
+  }
+
   let messageArray = message.content.split(" ");
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
