@@ -2,6 +2,7 @@ const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 	if (message.author.id != "372078453236957185") {
+		if (message.author.id !== "147765181903011840")
 		if (message.author.id != "365274392680333329") {
 	if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to change Terminal's prefix.");
 	}}
