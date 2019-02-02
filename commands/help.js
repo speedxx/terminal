@@ -186,8 +186,11 @@ module.exports.run = async (client, message, args) => {
 	if (args.includes("watch")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Watch:** A command that logs a channel. Usage: >_watch (channel id)/>_watch")
     } else {
+    if (args.includes("whitelist")) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**White List:** A command that allows invites/commands to a channel. Usage: >_whitelist (invites/commands/both)")
+    } else {
     if (args.includes("autoreact")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Autoreact:** A command that reacts to every message with a specified emote. Maximum of 2 emotes and doesn't allow guild emotes. Usage: >_autoreact (emote) (optional: emote2)")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Auto React:** A command that automatically reacts to all messages. Usage: >_autoreact (emotes)")
     } else {
 
         fs.readdir("./commands/", (err, files) => {
@@ -201,14 +204,14 @@ module.exports.run = async (client, message, args) => {
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `roleinfo`")
-        .addField("Messages:", "`censor`, `autoreact`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`, `logs`")
+        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `host`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
