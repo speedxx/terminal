@@ -141,6 +141,7 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
   if (message.content.toLowerCase().includes(prefix + "delete")) {
     if (message.author.bot) return;
     if (message.author.id != "372078453236957185") {
+      if (message.author.id != "147765181903011840") 
       if (message.author.id != "365274392680333329") {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**" + "You may not run this command.")
     }}
@@ -155,6 +156,7 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
   }
   if (message.channel.id === (lockdown[message.guild.id].lock)) {
     if (message.author.id === "372078453236957185") return
+    if (message.author.id === "147765181903011840") return
     if (message.author.id === "365274392680333329") return
     if (message.author.id === "521023036812558356") return
     if (message.member.hasPermission("MANAGE_MESSAGES")) return
@@ -225,7 +227,7 @@ let cmd = client.commands.get(command.slice(prefix.length));
       };
     }
     if (blacklist[message.author.id].person === 1) {
-      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#3413 for more information.")
+      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255, speed#3413 or fionn#0170 for more information.")
     }
     cmd.run(client, message, args); 
     console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
