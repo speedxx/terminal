@@ -266,14 +266,19 @@ client.on('message', async message => {
     autoreact[message.guild.id] = {
       toggle: 0,
       emoji: 0,
+      emoji2: 0,
       channel: 0
     };
   }
   if (autoreact[message.guild.id]) {
     if (autoreact[message.guild.id].toggle === 1) {
     if (autoreact[message.guild.id].channel === message.channel.id) {
+      if (autoreact[message.guild.id].emoji2 === 0) {
        message.react(autoreact[message.guild.id].emoji)
-      }
+      } else {
+       message.react(autoreact[message.guild.id].emoji)
+       message.react(autoreact[message.guild.id].emoji2)
+      }}
     }
   }
 
