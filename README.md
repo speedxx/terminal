@@ -6,7 +6,7 @@ A Moderation Bot, made for Discord. Coded in Javascript.
 square#1255, speed#3413, fionn#0170
 
 # Future plans?
-We plan to expand and create more commands for terminal. You may help us by posting [issues](https://github.com/squareGITHUB/terminal/issues) we didn't notice or creating [pull requests](https://github.com/squareGITHUB/terminal/pulls).
+We plan to expand and create more commands for terminal. You may help us by posting [issues](https://github.com/squareGITHUB/terminal/issues) we didn't notice or creating [pull requests](https://github.com/squareGITHUB/terminal/pulls) to help out with development.
 
 # Current commands
 >kick, 
