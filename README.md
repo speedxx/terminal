@@ -2,7 +2,7 @@
 A Moderation Bot, made for Discord. Coded in Javascript.
 [Invitation link](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8)
 
-# Who developed terminal?
+# Who develops terminal?
 square#1255, speed#3413, fionn#0170
 
 # Future plans?
