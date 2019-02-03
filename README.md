@@ -1,6 +1,7 @@
 # What is terminal?
 A Moderation Bot, made for Discord. Coded in Javascript.
 [Invitation link](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8)
+The code is open source, may be used, but please credit to this github.
 
 # Who develops terminal?
 square#1255, speed#3413, fionn#0170
