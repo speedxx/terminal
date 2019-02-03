@@ -3,5 +3,4 @@
 *.json
 .DS_Store
 node_modules/
-
 commands/host.js
