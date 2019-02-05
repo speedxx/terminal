@@ -123,9 +123,12 @@ client.on('message', async message => {
 
     // This section will contain swears!
 let swearwords = ["fuck", "ass" "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "heck","frick", "shit", "nigg", "niga","niger", "negro", "whore", "twat"]
-if(message.content.includes(swearwords)) {
+
+for(let x; x<=swearwords.length; x++) {
+if(message.content.includes(swearwords[x])) {
 message.delete();
 message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${message.author}, you cannot swear as this server is in PG mode!**`)
+}
 }
 
   }
