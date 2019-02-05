@@ -122,15 +122,18 @@ client.on('message', async message => {
 
 
     // This section will contain swears!
+
 let swearwords = ["fuck", "ass" "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "heck","frick", "shit", "nigg", "niga","niger", "negro", "whore", "twat"]
 
 
 for (let word of message.content.toLowerCase().split(/\s+/g)){
 if (swearwords.includes(word)) {
+if (message.content.toLowerCase().includes(swearwords)) {
 message.delete();
 message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${message.author}, you cannot swear as this server is in PG mode!**`)
 }
-
+}
+  }
   }
   const Prefix = require ("./commands/prefix.js")
   let prefixjson = JSON.parse(fs.readFileSync("./prefix.json", "utf8"));
@@ -141,13 +144,13 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
   }
   let prefix = prefixjson[message.guild.id].prefix
 
-  if (message.content.includes(prefix + "delete")) {
+  if (message.content.toLowerCase().includes(prefix + "delete")) {
     if (message.author.bot) return;
     if (message.author.id != "372078453236957185") {
+      if (message.author.id != "147765181903011840") 
       if (message.author.id != "365274392680333329") {
-        if (message.author.id != "508352711507443712") {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**" + "You may not run this command.")
-    }}}
+    }}
     message.channel.bulkDelete(2);
   }
   const Lockdown = require ("./commands/lockdown.js")
@@ -159,8 +162,8 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
   }
   if (message.channel.id === (lockdown[message.guild.id].lock)) {
     if (message.author.id === "372078453236957185") return
+    if (message.author.id === "147765181903011840") return
     if (message.author.id === "365274392680333329") return
-    if (message.author.id === "508352711507443712") return
     if (message.author.id === "521023036812558356") return
     if (message.member.hasPermission("MANAGE_MESSAGES")) return
     message.delete()
@@ -195,20 +198,27 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${mes
     autoreact[message.guild.id] = {
       toggle: 0,
       emoji: 0,
+      emoji2: 0,
       channel: 0
     };
   }
   if (autoreact[message.guild.id]) {
     if (autoreact[message.guild.id].toggle === 1) {
     if (autoreact[message.guild.id].channel === message.channel.id) {
+      if (autoreact[message.guild.id].emoji2 === 0) {
        message.react(autoreact[message.guild.id].emoji)
-      }
+      } else {
+       message.react(autoreact[message.guild.id].emoji)
+       message.react(autoreact[message.guild.id].emoji2)
+      }}
     }
   }
 
-let args = message.content.slice(prefix.length).trim().split(/\s+/g);
-        let cmd = args.shift().toLowerCase();
-        let command = client.commands.get(cmd)
+
+let messageArray = message.content.split(" ");
+let command = messageArray[0].toLowerCase();
+let args = messageArray.slice(1);
+let cmd = client.commands.get(command.slice(prefix.length));
 
   if (!command.startsWith(prefix)) return;
   if (cmd) {
@@ -223,7 +233,7 @@ let args = message.content.slice(prefix.length).trim().split(/\s+/g);
       };
     }
     if (blacklist[message.author.id].person === 1) {
-      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255 or speed#3413 for more information.")
+      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255, speed#3413 or fionn#0170 for more information.")
     }
     cmd.run(client, message, args); 
     console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)

@@ -1,7 +1,5 @@
-
 *config.json
 *.json
-*robin gay
 .DS_Store
 node_modules/
 commands/host.js
