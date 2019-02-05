@@ -126,7 +126,7 @@ client.on('message', async message => {
     for (let word of message.content.toLowerCase().split(/\s+/g)){
     if (swearwords.includes(word)) {
 message.delete();
-message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${message.author}, you cannot swear as this server is in PG mode!**`)
+message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${message.author}, you cannot swear as this server is in PG mode!`)
 }
 }
 }
