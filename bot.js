@@ -128,13 +128,11 @@ let swearwords = ["fuck", "ass" "bastard", "bitch", "slut", "pussy", "dick", "pe
 
 for (let word of message.content.toLowerCase().split(/\s+/g)){
 if (swearwords.includes(word)) {
-if (message.content.toLowerCase().includes(swearwords)) {
 message.delete();
 message.channel.send(`**/${message.guild}/${message.channel.name}/\nSorry, ${message.author}, you cannot swear as this server is in PG mode!**`)
 }
 }
-  }
-  }
+}
   const Prefix = require ("./commands/prefix.js")
   let prefixjson = JSON.parse(fs.readFileSync("./prefix.json", "utf8"));
   if (!prefixjson[message.guild.id]) { 
