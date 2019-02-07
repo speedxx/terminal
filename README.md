@@ -1,5 +1,5 @@
 # What is terminal?
-A Moderation Bot, made for Discord with over 50 commands. Coded in Javascript.
+A Moderation Bot, made for Discord with over 50 commands, which is coded in Java Script.
 ([Invitation link](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8))
 The code is open source, may be used, but please credit to this github.
 
