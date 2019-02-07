@@ -51,7 +51,12 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
   } else {
     if (oldMessage.guild.channels.exists('name', editchannel)) {
       const logedit = oldMessage.guild.channels.find(channel => channel.name === "terminal-logs");
-      logedit.send("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  " + `The message : "${oldMessage.content}" by ${oldMessage.author.tag} was edited to "${newMessage.content}".`)
+      const dembed3 = new Discord.RichEmbed()
+    .setAuthor("Message edit")
+    .setColor(Math.floor(Math.random() * 16777214) + 1)
+    .addField("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  ", `The message : "${oldMessage.content}" by **${oldMessage.author.tag}** was edited to "${newMessage.content}".`)
+    .setTimestamp()
+      logedit.send(dembed3);
     } else {
       oldMessage.channel.send("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  " + `The message : "${oldMessage.content}" by ${oldMessage.author.tag} was edited to "${newMessage.content}". \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
  }}}
@@ -71,7 +76,12 @@ client.on("messageDelete", (messageDelete) => {
   } else {
     if (messageDelete.guild.channels.exists('name', deletechannel)) {
       const logdelete = messageDelete.guild.channels.find(channel => channel.name === "terminal-logs");
-      logdelete.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
+      const dembed = new Discord.RichEmbed()
+  .setAuthor("Message deletion")
+  .setColor(Math.floor(Math.random() * 16777214) + 1)
+  .addField("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  ", `The message : "${messageDelete.content}" by **${messageDelete.author.tag}** was deleted.`)
+  .setTimestamp()
+    logdelete.send(dembed);
     } else {
       messageDelete.channel.send("**/" + messageDelete.guild + "/" + messageDelete.channel.name + "/** \n  " + `The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted. \n This message will delete in **5 seconds** (there is no terminal-logs channel), so screenshot this message if the user said anything that broke the rules.`).then(msg => { msg.delete(5000)})
  }}}
@@ -185,7 +195,12 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${m
     message.delete()
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
     const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
-    logdelete.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `${message.author} tried posting an invite in channel **${message.channel.name}**.`)
+    const dembed2 = new Discord.RichEmbed()
+    .setAuthor("Message deletion")
+    .setColor(Math.floor(Math.random() * 16777214) + 1)
+    .addField("**/" + message.guild + "/" + message.channel.name + "/** \n  ", `${message.author} tried posting an invite in channel **#${message.channel.name}**.`)
+    .setTimestamp()
+      logdelete.send(dembed2);
   }}
 
   const Autoreact = require ("./commands/autoreact.js")
@@ -252,7 +267,12 @@ let cmd = client.commands.get(command.slice(prefix.length));
     let deletechannel = "terminal-logs"
       if (message.guild.channels.exists('name', deletechannel)) {
         const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
-        logdelete.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `${message.author.tag} (${message.author.id}) ran >${primaryCommand}.`)
+        const dembed4 = new Discord.RichEmbed()
+        .setAuthor("Command logger")
+        .setColor(Math.floor(Math.random() * 16777214) + 1)
+        .addField("**/" + message.guild + "/" + message.channel.name + "/** \n  ", `**${message.author.tag}** (${message.author.id}) ran >${primaryCommand}.`)
+        .setTimestamp()
+          logdelete.send(dembed4);
       } else {
            return   
 }}
