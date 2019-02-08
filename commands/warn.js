@@ -11,7 +11,7 @@ let user = message.mentions.users.first();
 let warnembed = new Discord.RichEmbed()
         .setColor(Math.floor(Math.random() * 16777214) + 1)
         .setAuthor('Warned: ' + message.mentions.users.first().username)
-        .setTitle("Reason:")
+        .setTitle("Warn message DM sent.")
         .setDescription(args.splice(1).join(' '))
         .addField("Warned by: ", message.author.username)
   return message.channel.send(warnembed)
