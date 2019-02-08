@@ -244,7 +244,7 @@ let cmd = client.commands.get(command.slice(prefix.length));
       };
     }
     if (blacklist[message.author.id].person === 1) {
-      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255, speed#3413 or fionn#0170 for more information.")
+      return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you have been blocked from using Terminal. Please contact square#1255, speed#3413 or fionn#0001 for more information.")
     }
     cmd.run(client, message, args); 
     console.log(`${message.author.tag} (${message.author.id}) ran >${primaryCommand} in the guild: ` + message.guild.id)
