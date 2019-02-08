@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
     let prefix = prefixjson[message.guild.id].prefix
 
     if (args.includes("kick")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Kick:** A command that kicks an user. Usage: >_kick (user) (reason)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Kick:** A command that kicks an user. Usage: >_kick (user)")
     } else {
     if (args.includes("ban")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ban:** A command that bans an user. Usage: >_ban (user) (reason)")
@@ -200,16 +200,16 @@ module.exports.run = async (client, message, args) => {
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
-        .addField("Roles:", "`addrole`, `removerole`, `autorole`, `roleinfo`")
+        .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
-        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
+        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
 })}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-}
+};
 module.exports.help = {
     name: "help"
 };
