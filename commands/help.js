@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
     let prefix = prefixjson[message.guild.id].prefix
 
     if (args.includes("kick")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Kick:** A command that kicks an user. Usage: >_kick (user)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Kick:** A command that kicks an user. Usage: >_kick (user) (reason)")
     } else {
     if (args.includes("ban")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ban:** A command that bans an user. Usage: >_ban (user) (reason)")

@@ -4,6 +4,12 @@ module.exports.run = (client, message, args) => {
   if (!user) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Please supply an ID for me to unban.').catch(console.error);
   message.guild.unban(user);
   message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Unbanned ${user}.`)
+  try{
+    await user.send("**/" + message.author.username + "/DM** \n  " + "You have been unbanned from " + message.guild + ", by admin name: " + message.author)
+     }catch(e){
+       console.log(e.stack);
+       return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Failed to send DM.`)
+     }
 }
 module.exports.help = {
     name: "unban"
