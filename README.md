@@ -4,7 +4,7 @@ A Moderation Bot, made for Discord with over 50 commands, which is coded in Java
 The code is open source, may be used, but please credit to this github.
 
 # Who develops terminal?
-`square#1255` (founder, host), `speed#3413` (co-founder, host), `fionn#0170` (host)
+`square#1255` (founder, owner), `speed#3413` (co-founder, owner), `fionn#0170` (vps host, owner)
 
 # Future plans?
 We plan to expand and create more commands for terminal. You may help us by posting [issues](https://github.com/squareGITHUB/terminal/issues) we didn't notice or creating [pull requests](https://github.com/squareGITHUB/terminal/pulls) to help out with development.

@@ -54,7 +54,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
       const dembed3 = new Discord.RichEmbed()
     .setAuthor("Message edit")
     .setColor(Math.floor(Math.random() * 16777214) + 1)
-    .addField("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  ", `The message : "${oldMessage.content}" by **${oldMessage.author.tag}** was edited to "${newMessage.content}".`)
+    .addField("**/" + oldMessage.guild + "/" + oldMessage.channel.name + "/** \n  ", `From : "${oldMessage.content}" by **${oldMessage.author.tag}**\n To: "${newMessage.content}".`)
     .setTimestamp()
       logedit.send(dembed3);
     } else {

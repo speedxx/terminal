@@ -48,9 +48,6 @@ module.exports.run = async (client, message, args) => {
      if (args.includes("uptime")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Uptime:** A command that shows the bot uptime. Usage: >_uptime")
     } else {
-     if (args.includes("host")) {
-         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Host:** A command that shows the current host. Usage: >_host")
-     } else {
      if (args.includes("autorole")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Autorole:** A command which toggles autorole for the server. Usage: >_autorole (role name)")
     } else {
@@ -205,7 +202,7 @@ module.exports.run = async (client, message, args) => {
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `roleinfo`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
-        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `host`")
+        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
