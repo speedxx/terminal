@@ -40,7 +40,7 @@ We plan to expand and create more commands for terminal. You may help us by post
 >pause,
 >resume,
 >volume,
->ticket,
+>report,
 >image,
 >delete,
 >hackban,
