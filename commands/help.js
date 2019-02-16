@@ -189,6 +189,12 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("autoreact")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Auto React:** A command that automatically reacts to all messages. Usage: >_autoreact (emotes)")
     } else {
+    if (args.includes("vcban")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**VC Ban:** A command that bans a user from using voice chat. Usage: >_vcban (mention)")
+    } else {
+    if (args.includes("unvcban")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Un VC Ban:** A command that allows users to use voice chat normally again. Usage: >_unvcban (mention)")
+    } else {
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -199,7 +205,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
-        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
+        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`")
@@ -208,7 +214,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
