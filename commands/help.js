@@ -102,8 +102,8 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("image")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Image Embed:** A command that puts an image URL into an embed. This is used to get around the explicit message blocker for images. Usage: >_image (url)")
     } else {
-    if (args.includes("ticket")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ticket:** A command that creates a ticket to report rulebreakers. Usage: >_ticket (mention) (report)")
+    if (args.includes("report")) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Report:** A command that creates a ticket to report rulebreakers. Usage: >_report (mention) (report)")
     } else {
     if (args.includes("hackban")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Hackban:** A command that bans a user ID. Usage: >_hackban (user id) (reason)")
@@ -201,7 +201,7 @@ module.exports.run = async (client, message, args) => {
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
-        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `ticket`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
+        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
         .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
