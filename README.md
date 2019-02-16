@@ -60,7 +60,6 @@ We plan to expand and create more commands for terminal. You may help us by post
 >suggest,
 >roleinfo,
 >avatar,
->host,
 >logs,
 >watch,
 >whitelist,
