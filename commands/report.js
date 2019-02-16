@@ -3,9 +3,9 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     if (!args || args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please put a report to put in a ticket. It should include: \n Person mention, what they did, time, extra details.")
     if (!message.mentions.users.first()) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please mention the rulebreaker.")
-    message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your report has been sent to the log channel.")
 let reportchannel = "terminal-logs"
       if (message.guild.channels.exists('name', reportchannel)) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your report has been sent to the log channel.")
         const logreport = message.guild.channels.find(channel => channel.name === "terminal-logs");
         let reportmsg = args.splice(1).join(' ');
         const rembed = new Discord.RichEmbed()
