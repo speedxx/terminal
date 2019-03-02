@@ -63,16 +63,7 @@ module.exports.run = async (client, message, args) => {
      if (args.includes("ping")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ping:** A command which shows the bot's ping. Usage: >_ping")
     } else {
-    if (args.includes("join")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Join:** A command which makes Terminal join a VC. Usage: >_join")
-    } else {
-    if (args.includes("play")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Play:** A command which makes Terminal play an URL. Usage: >_play (URL)")
-    } else {
-    if (args.includes("leave")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Leave:** A command which makes Terminal leave a VC. Usage: >_leave")
-    } else {
-    if (args.includes("lockdown")) {
+        if (args.includes("lockdown")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Lockdown:** A command which locks down a channel, preventing anyone but admins to speak. You have to unlock via another channel to properly unlock the channel. Usage: >_lockdown lock/>_lockdown")
     } else {
     if (args.includes("prefix")) {
@@ -87,16 +78,7 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("timer")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Timer:** A command which creates a timer for seconds/minutes/days/months/years and adds a message. Usage: >_timer (time)")
     } else {
-    if (args.includes("pause")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Pause:** A command that pauses the current song playing. Usage: >_pause")
-    } else {
-    if (args.includes("resume")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Resume:** A command that resumes a song. Usage: >_resume")
-    } else {
-    if (args.includes("volume")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Volume:** A command that changes volume of a video. Usage: >_volume (0/200)")
-    } else {
-    if (args.includes("serverinfo")) {
+       if (args.includes("serverinfo")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Server Info:** A command that shows all the information about the current guild. Usage: >_serverinfo")
     } else {
     if (args.includes("image")) {
@@ -210,11 +192,10 @@ module.exports.run = async (client, message, args) => {
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`")
         .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
-        .addField("Music:", "`play`, `join`, `leave`, `pause`, `resume`, `volume`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
