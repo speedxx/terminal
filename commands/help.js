@@ -16,13 +16,13 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Kick:** A command that kicks an user. -s = silenced (don't dm the user). Usage: >_kick (user) (reason) (-s)")
     } else {
     if (args.includes("ban")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ban:** A command that bans an user. -s = silenced (don't dm the user), -u = include user mention in ban reason. Usage: >_ban (user) (reason) (-s/-u)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ban:** A command that bans an user. -s = silenced (don't dm the user), -u = include person who banned in ban reason. Usage: >_ban (user) (reason) (-s/-u)")
     } else {
     if (args.includes("purge")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Purge:** A command that purges messages. Usage: >_purge (interger)")
     } else {
     if (args.includes("softban")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Softban:** A command that bans and unbans a user. -s = silenced (don't dm the user), -u = include user mention in ban reason. Usage: >_softban (user) (reason) (-s/-u)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Softban:** A command that bans and unbans a user. -s = silenced (don't dm the user), -u = include person who banned in ban reason. Usage: >_softban (user) (reason) (-s/-u)")
     } else {
     if (args.includes("mute")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Mute:** A command that mutes an user from typing. Usage: >_mute (user) (time)")
