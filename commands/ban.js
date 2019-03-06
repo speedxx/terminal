@@ -9,15 +9,26 @@ module.exports.run = async (bot, message, args) => {
 
     let reason = args.splice(1).join(' ');
     if (!reason) reason = " Insufficient reason.";
-    try{
-        await user.send("**/" + message.author.username + "/DM** \n  " + "You have been banned from " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + args.splice(1).join(' '))
-         }catch(e){
-           console.log(e.stack);
-           message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Failed to send DM.`)
-         }
-    message.guild.member(user).ban(reason);
-    message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully banned user: " + user + ", for the reason: " + reason)
+    if (message.content.includes(" -s")) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Silenced the ban.")
+        } else {
+            try{
+                await user.send("**/" + message.author.username + "/DM** \n  " + "You have been banned from " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + reason)
+                 }catch(e){
+                   console.log(e.stack);
+                   message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Failed to send DM.`)
+                 }
+        }
 
+         if (message.content.includes(" -u")) {
+            let reasonuser = `${reason} (${message.author.username})`
+            message.guild.member(user).ban(reasonuser); 
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully banned user: " + user + ", for the reason: " + reasonuser)
+    } else {
+        message.guild.member(user).ban(reason); 
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully banned user: " + user + ", for the reason: " + reason)
+
+    }
 
 }
 module.exports.help = {

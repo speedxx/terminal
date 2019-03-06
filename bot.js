@@ -132,7 +132,7 @@ client.on('message', async message => {
 
 
     // This section will contain swears!
-    let swearwords = ["fuck", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "heck","frick", "shit", "nigg", "niga","niger", "negro", "whore", "twat"]
+    let swearwords = ["fuck", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "whore", "twat"]
     for (let word of message.content.toLowerCase().split(/\s+/g)){
     if (swearwords.includes(word)) {
 message.delete();
