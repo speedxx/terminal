@@ -180,6 +180,10 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("ctalk")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**C Talk:** [Bot admin command] A command that sends a message to a specific channel. Usage: >_ctalk (channel id) (message)")
     } else {
+    if (args.includes("dtalk")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**D Talk:** [Bot admin command] A command that sends a message to a user by ID. Usage: >_dtalk (user id) (message)")
+    } else {
+
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -189,7 +193,7 @@ module.exports.run = async (client, message, args) => {
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`")
+        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
