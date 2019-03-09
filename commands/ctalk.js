@@ -9,6 +9,7 @@ module.exports.run = (client, message, args,) => {
     let channelid = args[0]
     if (toptext.length  < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Supply a ***valid*** channel ID");
     client.channels.get(channelid).send(toptext) 
+    message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sent " + toptext + " to " + channelid);
 }
 module.exports.help = {
     name: "ctalk"
