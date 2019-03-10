@@ -177,6 +177,12 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("unvcban")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Un VC Ban:** A command that allows users to use voice chat normally again. Usage: >_unvcban (mention)")
     } else {
+    if (args.includes("deletechannel")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Delete Channel:** A command that deletes a channel by mention. Usage: >_deletechannel (channel mention) accept")
+    } else {
+    if (args.includes("nuke")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nuke:** A command that deletes and recreates a channel by mention. Usage: >_nuke (channel mention) accept")
+    } else {
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -191,11 +197,11 @@ module.exports.run = async (client, message, args) => {
         .addField("Roles:", "`addrole`, `removerole`, `autorole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`")
-        .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `nick`, `suggest`, `avatar`")
+        .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
