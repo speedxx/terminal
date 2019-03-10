@@ -11,7 +11,7 @@ let reportchannel = "terminal-reports"
         const rembed = new Discord.RichEmbed()
         .setAuthor(`Administrator Ticket:`)
         .setDescription(reportmsg)
-        .setFooter("Report for user: " + message.mentions.users.first().username)
+        .setFooter("Report for user: " + message.mentions.users.first().username + ", from: " + message.author.username)
         .setColor('RANDOM')
           logreport.send(rembed);
       } else {
@@ -20,7 +20,7 @@ let reportchannel = "terminal-reports"
         let report = new Discord.RichEmbed()
         .setAuthor(`Administrator Ticket:`)
         .setDescription(reportmsg)
-        .setFooter("Report for user: " + message.mentions.users.first().username)
+        .setFooter("Report for user: " + message.mentions.users.first().username + ", from: " + message.author.username)
         .setColor('RANDOM')
         message.delete()
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**")

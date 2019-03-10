@@ -10,6 +10,7 @@ let reportchannel = "terminal-reports"
         const rembed = new Discord.RichEmbed()
         .setAuthor(`Support Ticket:`)
         .setDescription(reportmsg)
+        .setFooter("From: " + message.author.username)
         .setColor('RANDOM')
           logreport.send(rembed);
       } else {
@@ -18,6 +19,7 @@ let reportchannel = "terminal-reports"
         let report = new Discord.RichEmbed()
         .setAuthor(`Support Ticket:`)
         .setDescription(reportmsg)
+        .setFooter("From: " + message.author.username)
         .setColor('RANDOM')
         message.delete()
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**")
