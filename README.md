@@ -10,7 +10,7 @@ We plan to expand and create more commands for terminal. You may help us by post
 ### Where can I find the invitation link?
 [Here](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8)
 
-### Current commands
+### Current Commands
 >kick, 
 >ban, 
 >ping,
@@ -65,3 +65,13 @@ We plan to expand and create more commands for terminal. You may help us by post
 >whrole,
 >deletechannel,
 >nuke
+
+### Server Requirements
+Your server can have two optional channels:
+> **terminal-logs**
+
+**This is used for logs** which can be enabled by doing the command: "logs on". If logs is enabled and there is no channel, it will report to the channel the action has taken place in.
+
+> **terminal-reports**
+
+**This is used for reports and tickets**. If there is no reports channel, all tickets and reports will go to the channel the report has taken place in.
