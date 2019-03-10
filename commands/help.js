@@ -43,7 +43,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Developers:** A command that shows the developers and owners of Terminal. Usage: >_developers")
     } else {
      if (args.includes("help")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Help:** A command that lists commands. Usage: >_help")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Help:** A command that lists all commands. Usage: >_help")
     } else {
      if (args.includes("uptime")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Uptime:** A command that shows the bot uptime. Usage: >_uptime")
@@ -156,9 +156,6 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("say")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Say:** [Bot admin command] A command that repeats whatever you say. Usage: >_say (text)")
     } else {
-    if (args.includes("host")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Host:** A command that tells you who is hosting the bot (e.g speed or square). Usage: >_host")
-    } else {
     if (args.includes("logs")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs any message edits/deletions/invites. Usage: >_logs or >_logs on")
     } else {
@@ -177,12 +174,25 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("unvcban")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Un VC Ban:** A command that allows users to use voice chat normally again. Usage: >_unvcban (mention)")
     } else {
+    if (args.includes("serverinvite")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Server Invite:** A command that generates a server invitation link. Usage: >_serverinvite")
+    } else {
+    if (args.includes("ctalk")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**C Talk:** [Bot admin command] A command that sends a message to a specific channel. Usage: >_ctalk (channel id) (message)")
+    } else {
+    if (args.includes("dtalk")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**D Talk:** [Bot admin command] A command that sends a message to a user by ID. Usage: >_dtalk (user id) (message)")
+    } else {
+    if (args.includes("whrole")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Wh Role:** [Bot admin command] A command that shows you all the members in a role. Usage: >_whrole (role name)")
+    } else {
     if (args.includes("deletechannel")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Delete Channel:** A command that deletes a channel by mention. Usage: >_deletechannel (channel mention) accept")
     } else {
     if (args.includes("nuke")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nuke:** A command that deletes and recreates a channel by mention. Usage: >_nuke (channel mention) accept")
     } else {
+
 
         fs.readdir("./commands/", (err, files) => {
 
@@ -192,16 +202,16 @@ module.exports.run = async (client, message, args) => {
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`")
+        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`, `vcban`, `unvcban`")
-        .addField("Roles:", "`addrole`, `removerole`, `autorole`")
+        .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
-        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`")
-        .addField("Other:", "`developers`, `image`, `help`, `host`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
+        .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
+        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
