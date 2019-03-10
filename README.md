@@ -68,8 +68,9 @@ We plan to expand and create more commands for terminal. You may help us by post
 
 ### Server Requirements
 Your server can have two optional channels:
-> terminal-logs
+> **terminal-logs**
+
 This is used for logs which can be enabled by doing the command: "logs on". If logs is enabled and there is no channel, it will report to the channel the action has taken place in.
 
-> terminal-reports
+> **terminal-reports**
 This is used for reports and tickets. If there is no reports channel, all tickets and reports will go to the channel the report has taken place in.
