@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     if (!message.mentions.users.first()) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please mention the rulebreaker.")
 let reportchannel = "terminal-reports"
       if (message.guild.channels.exists('name', reportchannel)) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your report has been sent to the log channel.")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your report has been sent to the reports channel.")
         const logreport = message.guild.channels.find(channel => channel.name === "terminal-reports");
         let reportmsg = args.splice(1).join(' ');
         const rembed = new Discord.RichEmbed()
