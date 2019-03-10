@@ -192,6 +192,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("nuke")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nuke:** A command that deletes and recreates a channel by mention. Usage: >_nuke (channel mention) accept")
     } else {
+    if (args.includes("ticket")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ticket:** A command that creates a ticket for support. Usage: >_ticket (report)")
+    } else {
 
 
         fs.readdir("./commands/", (err, files) => {
@@ -211,7 +214,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"

@@ -3,10 +3,10 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     if (!args || args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please put a report to put in a ticket. It should include: \n Person mention, what they did, time, extra details.")
     if (!message.mentions.users.first()) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please mention the rulebreaker.")
-let reportchannel = "terminal-logs"
+let reportchannel = "terminal-reports"
       if (message.guild.channels.exists('name', reportchannel)) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your report has been sent to the log channel.")
-        const logreport = message.guild.channels.find(channel => channel.name === "terminal-logs");
+        const logreport = message.guild.channels.find(channel => channel.name === "terminal-reports");
         let reportmsg = args.splice(1).join(' ');
         const rembed = new Discord.RichEmbed()
         .setAuthor(`Administrator Ticket:`)
@@ -15,7 +15,7 @@ let reportchannel = "terminal-logs"
         .setColor('RANDOM')
           logreport.send(rembed);
       } else {
-          message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "There is no `terminal-logs` channel, the report has been sent here.")
+          message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "There is no `terminal-reports` channel, the report has been sent here.")
         let reportmsg = args.splice(1).join(' ');
         let report = new Discord.RichEmbed()
         .setAuthor(`Administrator Ticket:`)
