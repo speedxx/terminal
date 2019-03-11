@@ -10,6 +10,9 @@ We plan to expand and create more commands for terminal. You may help us by post
 ### Where can I find the invitation link?
 [Here](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8)
 
+### Terminal Prefix
+`>_`
+
 ### Current Commands
 >kick, 
 >ban, 
