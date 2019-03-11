@@ -195,6 +195,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("ticket")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ticket:** A command that creates a ticket for support. Usage: >_ticket (report)")
     } else {
+     if (args.includes("tempban")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Tempban:** A command that bans a user for a specific time. -s = silenced (don't dm the user), -u = include person who banned in ban reason. Usage: >_tempban (user) (time) (reason) (-s/-u)")
+    } else {
 
 
         fs.readdir("./commands/", (err, files) => {
@@ -206,7 +209,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
-        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`, `vcban`, `unvcban`")
+        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
@@ -214,7 +217,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
