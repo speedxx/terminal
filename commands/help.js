@@ -63,7 +63,7 @@ module.exports.run = async (client, message, args) => {
      if (args.includes("ping")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ping:** A command which shows the bot's ping. Usage: >_ping")
     } else {
-        if (args.includes("lockdown")) {
+    if (args.includes("lockdown")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Lockdown:** A command which locks down a channel, preventing anyone but admins to speak. You have to unlock via another channel to properly unlock the channel. Usage: >_lockdown lock/>_lockdown")
     } else {
     if (args.includes("prefix")) {
@@ -88,7 +88,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Report:** A command that creates a ticket to report rulebreakers. Usage: >_report (mention) (report)")
     } else {
     if (args.includes("hackban")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Hackban:** A command that bans a user ID. Usage: >_hackban (user id) (reason)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Hackban:** A command that bans a user ID. -u = include person who banned in ban reason. Usage: >_hackban (user id) (reason) (-u)")
     } else {
     if (args.includes("delete")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Delete:** A command that deletes the previous message. Usage: >_delete")
@@ -195,8 +195,14 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("ticket")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Ticket:** A command that creates a ticket for support. Usage: >_ticket (report)")
     } else {
-     if (args.includes("tempban")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Tempban:** A command that bans a user for a specific time. -s = silenced (don't dm the user), -u = include person who banned in ban reason. Usage: >_tempban (user) (time) (reason) (-s/-u)")
+    if (args.includes("tempban")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Temporary ban:** A command that bans a user for a specific time. -s = silenced (don't dm the user), -u = include person who banned in ban reason. Usage: >_tempban (user) (time) (reason) (-s/-u)")
+    } else {
+    if (args.includes("permmute")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Permanent Mute:** A command that mutes a user. Usage: >_permmute (user)")
+    } else {
+    if (args.includes("permblind")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Permanent Blind:** A command that blinds a user. Usage: >_permblind (user)")
     } else {
 
 
@@ -209,7 +215,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
-        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `unmute`, `blind`, `unblind`, `warn`, `vcban`, `unvcban`")
+        .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `permmute`, `unmute`, `blind`, `permblind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
@@ -217,7 +223,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
