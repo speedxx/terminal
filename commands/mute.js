@@ -34,7 +34,6 @@ module.exports.run = async (bot, message, args) => {
     if (!mutetime) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please specify a time.");
 
     await (tomute.addRole(muterole.id));
-    if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to mute " + tomute + " for the reason: " + err)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
 
     setTimeout(function() {
@@ -42,7 +41,6 @@ module.exports.run = async (bot, message, args) => {
         let gRole = message.guild.roles.find(`name`, role)
         if(!tomute.roles.has(gRole.id)) return 
         tomute.removeRole(muterole.id);
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unmute " + tomute + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been unmuted.`);
     }, ms(mutetime));
 

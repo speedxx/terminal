@@ -31,7 +31,6 @@ module.exports.run = async (bot, message, args) => {
 
     
     await (tomute.addRole(muterole.id));
-    if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to blind " + tomute + " for the reason: " + err)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been blinded.`);
 }
 

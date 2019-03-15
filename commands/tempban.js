@@ -28,11 +28,9 @@ module.exports.run = async (bot, message, args) => {
          if (message.content.includes(" -u")) {
             let reasonuser = `${reason} (${message.author.username})`
             await (message.guild.member(toban).ban(reasonuser))
-            if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to ban " + toban + " for the reason: " + err)
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been tempbanned for ${ms(ms(bantime))}` + ", for the reason: " + reasonuser);        
     } else {
         await (message.guild.member(toban).ban(reason))
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to ban " + toban + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been tempbanned for ${ms(ms(bantime))}` + ", for the reason: " + reason);
     
 
@@ -41,7 +39,6 @@ module.exports.run = async (bot, message, args) => {
     setTimeout(function() {
 
         message.guild.unban(toban);
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unban " + toban + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been unbanned.`);
 
     }, ms(bantime));

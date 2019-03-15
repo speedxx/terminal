@@ -23,7 +23,6 @@ module.exports.run = async (bot, message, args, client) => {
                  }
         }
     member.kick().then((member) => {
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to kick " + tokick + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " " + member.displayName + " has been kicked by " + message.author.username);
     })
 }

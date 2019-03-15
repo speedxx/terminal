@@ -26,16 +26,12 @@ module.exports.run = async (bot, message, args) => {
          if (message.content.includes(" -u")) {
             let reasonuser = `${reason} (${message.author.username})`
             message.guild.member(user).ban(reasonuser); 
-            if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to ban " + user + " for the reason: " + err)
             message.guild.unban(user);
-            if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unban " + user + " for the reason: " + err)
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully softbanned user: " + user + ", for the reason: " + reasonuser)
             
     } else {
         message.guild.member(user).ban(reason); 
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to ban " + user + " for the reason: " + err)
         message.guild.unban(user);
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unban " + user + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully softbanned user: " + user + ", for the reason: " + reason)
 
     }

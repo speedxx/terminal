@@ -34,13 +34,11 @@ module.exports.run = async (bot, message, args, client) => {
     if (!mutetime) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please specify a time.");
 
     await (tomute.addRole(muterole.id));
-    if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to blind " + tomute + " for the reason: " + err)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been blinded for ${ms(ms(mutetime))}`);
 
     setTimeout(function() {
         if(!tomute.roles.has(muterole.id)) return 
         tomute.removeRole(muterole.id);
-        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unblind " + tomute + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been unblinded.`);
     }, ms(mutetime));
 

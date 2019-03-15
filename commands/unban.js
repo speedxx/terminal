@@ -5,7 +5,6 @@ module.exports.run = async (client, message, args) => {
   if (!user) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Please supply an ID for me to unban.').catch(console.error);
   if (user === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot unban yourself.");  
   message.guild.unban(user);
-  if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unban " + toban + " for the reason: " + err)
   message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Unbanned ${user}.`)
   try{
     await client.users.get(user).send("**/" + message.author.username + "/DM** \n  " + "You have been unbanned from " + message.guild + ", by admin name: " + message.author)

@@ -30,7 +30,6 @@ module.exports.run = async (bot, message, args) => {
     }
 
     await (tomute.addRole(muterole.id));
-    if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to mute " + tomute + " for the reason: " + err)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been muted.`);
 
 }

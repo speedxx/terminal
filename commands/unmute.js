@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args) => {
 
   if(!rMember.roles.has(gRole.id)) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` That person isn't muted.`);
   await(rMember.removeRole(gRole.id));
-  if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unmute " + rMember + " for the reason: " + err)
 
   try{
     await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Unmuted ${rMember}.`)

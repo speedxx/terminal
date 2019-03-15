@@ -33,7 +33,6 @@ module.exports.run = async (bot, message, args) => {
     if (!mutetime) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please specify a time.");
 
     await (tomute.addRole(muterole.id));
-    if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to VC ban " + tomute + " for the reason: " + err)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been VC banned for ${ms(ms(mutetime))}`);
 
     setTimeout(function() {
