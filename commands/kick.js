@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args, client) => {
     if (args.includes("@everyone")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ' **Error**');
     if (args.includes("@here")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ' **Error** ');
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " You do not have sufficient permissions to kick this user.");
-    if(!member.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to kick members.");
+    if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to kick members.");
     let tokick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tokick.kickable) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to kick this user.");
     if (tokick.hasPermission("KICK_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to kick is either the same, or higher ranking than you.");

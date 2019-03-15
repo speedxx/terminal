@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args, discord) => {
     let noid = args[0]
     let reason = args.splice(1).join(' ');
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to ban users.");
-    if(!member.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to ban members.");
+    if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to ban members.");
     if (args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please supply an ID to ban.")
       bot.fetchUser(noid).then(id => {
         if (message.content.includes(" -u")) {

@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = (bot, message, args, discord) => {
     let nid = args.join(' ');
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to pin messages.");
-    if(!member.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to manage messages.");
+    if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to manage messages.");
     if (args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please supply a message ID.")
       message.channel.fetchMessage(nid).then(id => {
         id.pin().catch(err => {
