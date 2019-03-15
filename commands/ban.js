@@ -7,7 +7,6 @@ module.exports.run = async (bot, message, args) => {
     if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to ban members.");
     let user = message.mentions.users.first();
     if (!user) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user.");   
-    if(!user.bannable) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "I do not have sufficient permissions to ban this user.");   
     if (user.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to ban is either the same, or higher ranking than you.");
 
     let reason = args.splice(1).join(' ');

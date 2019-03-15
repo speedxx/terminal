@@ -8,7 +8,6 @@ module.exports.run = async (bot, message, args) => {
     if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to ban members.");
     let toban = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!toban) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user.");   
-    if(!toban.bannable) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "I do not have sufficient permissions to tempban this user.");   
     if (toban.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to tempban is either the same, or higher ranking than you.");
     let bantime = args[1];
     if (!bantime) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please specify a time.");
