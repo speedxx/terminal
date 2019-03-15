@@ -8,6 +8,7 @@ module.exports.run = async (bot, message, args, client) => {
     if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to kick members.");
     let tokick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!tokick) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Couldn't find user.");
+    if (tokick === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot kick yourself.");
     if (tokick.hasPermission("KICK_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to kick is either the same, or higher ranking than you.");
     var member = message.mentions.members.first();
     let user = message.mentions.users.first();
@@ -22,6 +23,7 @@ module.exports.run = async (bot, message, args, client) => {
                  }
         }
     member.kick().then((member) => {
+        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to kick " + tokick + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " " + member.displayName + " has been kicked by " + message.author.username);
     })
 }

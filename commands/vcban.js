@@ -8,6 +8,7 @@ module.exports.run = async (bot, message, args) => {
     if (args.includes("@here")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Error.');
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!tomute) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user.");
+    if (rMember === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot VC ban yourself.");  
     if (tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to vc ban is either the same, or higher ranking than you.");
     let muterole = message.guild.roles.find(`name`, "VC Banned");
 
@@ -32,6 +33,7 @@ module.exports.run = async (bot, message, args) => {
     if (!mutetime) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please specify a time.");
 
     await (tomute.addRole(muterole.id));
+    if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to VC ban " + tomute + " for the reason: " + err)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been VC banned for ${ms(ms(mutetime))}`);
 
     setTimeout(function() {

@@ -8,6 +8,7 @@ module.exports.run = async (bot, message, args) => {
     if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to ban members.");
     let toban = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!toban) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user.");   
+    if (toban === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot ban yourself.");  
     if (toban.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to tempban is either the same, or higher ranking than you.");
     let bantime = args[1];
     if (!bantime) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please specify a time.");
@@ -27,9 +28,11 @@ module.exports.run = async (bot, message, args) => {
          if (message.content.includes(" -u")) {
             let reasonuser = `${reason} (${message.author.username})`
             await (message.guild.member(toban).ban(reasonuser))
+            if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to ban " + toban + " for the reason: " + err)
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been tempbanned for ${ms(ms(bantime))}` + ", for the reason: " + reasonuser);        
     } else {
         await (message.guild.member(toban).ban(reason))
+        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to ban " + toban + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been tempbanned for ${ms(ms(bantime))}` + ", for the reason: " + reason);
     
 
@@ -37,8 +40,9 @@ module.exports.run = async (bot, message, args) => {
 
     setTimeout(function() {
 
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been unbanned.`);
         message.guild.unban(toban);
+        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to unban " + toban + " for the reason: " + err)
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been unbanned.`);
 
     }, ms(bantime));
 

@@ -5,8 +5,9 @@ module.exports.run = async (bot, message, args) => {
     if (args.includes("@here")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ' **Error** ');
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " You do not have sufficient permissions to ban users.");
     if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to ban members.");
-    let user = message.mentions.users.first();
-    if (!user) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user.");   
+    let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if (!user) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user."); 
+    if (user === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot ban yourself.");
     if (user.hasPermission("BAN_MEMBERS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to ban is either the same, or higher ranking than you.");
 
     let reason = args.splice(1).join(' ');
@@ -25,9 +26,11 @@ module.exports.run = async (bot, message, args) => {
          if (message.content.includes(" -u")) {
             let reasonuser = `${reason} (${message.author.username})`
             message.guild.member(user).ban(reasonuser); 
+            if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to blind " + user + " for the reason: " + err)
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully banned user: " + user + ", for the reason: " + reasonuser)
     } else {
         message.guild.member(user).ban(reason); 
+        if (err) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Failed to blind " + user + " for the reason: " + err)
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully banned user: " + user + ", for the reason: " + reason)
 
     }

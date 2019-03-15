@@ -5,6 +5,7 @@ module.exports.run = async (bot, message, args) => {
   if (args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please supply a reason.")
  if (!message.mentions.users.first()) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please supply a mention.")
 let user = message.mentions.users.first();
+if (user === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot warn yourself.");  
 
   try{
     await user.send("**/" + message.author.username + "/DM** \n  " + "You have been warned in " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + args.splice(1).join(' '))
