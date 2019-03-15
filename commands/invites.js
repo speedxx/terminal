@@ -2,6 +2,7 @@ const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 	if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to block invites.");
+	if(!member.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to delete messages.");
 	let invite = JSON.parse(fs.readFileSync("./invites.json", "utf8"));
 	if (!args[0]) { 
 		invite[message.guild.id] = {
