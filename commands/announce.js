@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
     let embedmsg = args.splice(1).join(' ');
     let announceembed = new Discord.RichEmbed()
     .setColor(Math.floor(Math.random() * 16777214) + 1)
-    .setAuthor('Announement from: ' + message.author.username)
+    .setAuthor('Announcement from: ' + message.author.username)
     .setDescription(embedmsg);
     let announceChannel = message.mentions.channels.first();
     message.guild.channels.find(t => t.id == announceChannel.id).send("**/" + message.guild + "/" + message.channel.name + "/**")
