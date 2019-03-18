@@ -1,5 +1,5 @@
-const Discord = require("discord.js");
-
+const fs = require("fs");
+const Discord = require("Discord")
 module.exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to nuke channels.");
     if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to manage channels.");
@@ -8,7 +8,22 @@ module.exports.run = async (client, message, args) => {
         let server = message.guild
     server.createChannel(message.mentions.channels.first().name);
     message.guild.channels.find(t => t.id == nukeChannel.id).delete();
-    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Nuked the channel " + message.mentions.channels.first() + " successfully.")
+    message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Nuked the channel " + message.mentions.channels.first() + " successfully.")
+    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.RichEmbed()
+      .setColor(0xff0000)
+      .setTitle("Channel Nuke Event:")
+      .addField("Admin:", message.author)
+      .setTimestamp()
+   logchannel.send(eventembed);
+    }
 } else {
     return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please add `accept` to the command to accept that this will delete the channel you have mentioned.")
 }

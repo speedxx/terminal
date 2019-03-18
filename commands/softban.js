@@ -1,5 +1,5 @@
-const Discord = require("discord.js");
-
+const fs = require("fs");
+const Discord = require("Discord")
 module.exports.run = async (bot, message, args) => {
     if (args.includes("@everyone")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ' **Error**');
     if (args.includes("@here")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ' **Error** ');
@@ -28,12 +28,44 @@ module.exports.run = async (bot, message, args) => {
             message.guild.member(user).ban(reasonuser); 
             message.guild.unban(user);
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully softbanned user: " + user + ", for the reason: " + reasonuser)
-            
+            let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+  if (!logs[message.guild.id]) { 
+    logs[message.guild.id] = {
+      toggle: 0
+    };
+  } 
+  if (logs[message.guild.id].toggle === 1) {
+    const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+    let eventembed = new Discord.RichEmbed()
+    .setColor(0xff0000)
+    .setTitle("Soft Ban Event:")
+    .addField("User Banned:", user)
+    .addField("Admin:", message.author)
+    .addField("Reason:", reasonuser)
+    .setTimestamp()
+ logchannel.send(eventembed);
+  }
     } else {
         message.guild.member(user).ban(reason); 
         message.guild.unban(user);
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Successfully softbanned user: " + user + ", for the reason: " + reason)
-
+        let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0xff0000)
+          .setTitle("Ban Event:")
+          .addField("User Banned:", user)
+          .addField("Admin:", message.author)
+          .addField("Reason:", reason)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
     }
 }
 module.exports.help = {

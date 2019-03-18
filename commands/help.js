@@ -157,13 +157,10 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Say:** [Bot admin command] A command that repeats whatever you say. Usage: >_say (text)")
     } else {
     if (args.includes("logs")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs any message edits/deletions/invites. Usage: >_logs or >_logs on")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs bans/kicks etc. Usage: >_logs or >_logs on")
     } else {
 	if (args.includes("watch")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Watch:** A command that logs a channel. Usage: >_watch (channel id)/>_watch")
-    } else {
-    if (args.includes("whitelist")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**White List:** A command that allows invites/commands to a channel. Usage: >_whitelist (invites/commands/both)")
     } else {
     if (args.includes("autoreact")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Auto React:** A command that automatically reacts to all messages. Usage: >_autoreact (emotes)")
@@ -217,13 +214,13 @@ module.exports.run = async (client, message, args) => {
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `permmute`, `unmute`, `blind`, `permblind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`")
-        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `whitelist`, `autoreact`")
+        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
         .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"

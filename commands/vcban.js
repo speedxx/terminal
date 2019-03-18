@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const ms = require("ms");
+const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " You do not have sufficient permissions to vc ban members.");
@@ -34,11 +35,43 @@ module.exports.run = async (bot, message, args) => {
 
     await (tomute.addRole(muterole.id));
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been VC banned for ${ms(ms(mutetime))}`);
+    if (!logs[message.guild.id]) { 
+        logs[message.guild.id] = {
+          toggle: 0
+        };
+      } 
+      if (logs[message.guild.id].toggle === 1) {
+        const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+        let eventembed = new Discord.RichEmbed()
+        .setColor(0xff0000)
+        .setTitle("VC Ban Event:")
+        .addField("User VC banned:", tomute)
+        .addField("Admin:", message.author)
+        .addField("Time:", mutetime)
+        .setTimestamp()
+     logchannel.send(eventembed);
+      }
 
     setTimeout(function() {
         if(!tomute.roles.has(muterole.id)) return 
         tomute.removeRole(muterole.id);
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been unvc banned.`);
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been unVC banned.`);
+        let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0x00ff00)
+          .setTitle("UnVC Ban Event:")
+          .addField("User UnVC banned:", rMember)
+          .addField("Admin:", message.author)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
     }, ms(mutetime));
 
 }

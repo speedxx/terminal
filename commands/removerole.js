@@ -1,5 +1,5 @@
-const Discord = require("discord.js");
-
+const fs = require("fs");
+const Discord = require("Discord")
 module.exports.run = async (bot, message, args) => {
   if (args.includes("@everyone")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Error.');
   if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("/" + message.guild + "/" + message.channel.name + "/" + "You do not have sufficient permissions to remove a role from someone.");
@@ -16,6 +16,23 @@ module.exports.run = async (bot, message, args) => {
 
   try{
     await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Removed ${rMember} from ${gRole.name}.`)
+    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.RichEmbed()
+      .setColor(0xff0000)
+      .setTitle("Remove Role Event:")
+      .addField("User:", rMember)
+      .addField("Admin:", message.author)
+      .addField("Role:", gRole)
+      .setTimestamp()
+   logchannel.send(eventembed);
+    }
   }catch(e){
   }
 }

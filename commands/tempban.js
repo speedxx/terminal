@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const ms = require("ms");
+const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
     if (args.includes("@everyone")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Error.');
@@ -29,10 +30,45 @@ module.exports.run = async (bot, message, args) => {
             let reasonuser = `${reason} (${message.author.username})`
             await (message.guild.member(toban).ban(reasonuser))
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been tempbanned for ${ms(ms(bantime))}` + ", for the reason: " + reasonuser);        
-    } else {
+            let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+            if (!logs[message.guild.id]) { 
+              logs[message.guild.id] = {
+                toggle: 0
+              };
+            } 
+            if (logs[message.guild.id].toggle === 1) {
+              const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+              let eventembed = new Discord.RichEmbed()
+              .setColor(0xff0000)
+              .setTitle("Temp Ban Event:")
+              .addField("User Banned:", toban)
+              .addField("Admin:", message.author)
+              .addField("Reason:", reason)
+              .addField("Time:", bantime)
+              .setTimestamp()
+           logchannel.send(eventembed);
+            }
+        } else {
         await (message.guild.member(toban).ban(reason))
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been tempbanned for ${ms(ms(bantime))}` + ", for the reason: " + reason);
-    
+        let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0xff0000)
+          .setTitle("Temp Ban Event:")
+          .addField("User Banned:", toban)
+          .addField("Admin:", message.author)
+          .addField("Reason:", reason)
+          .addField("Time:", bantime)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
 
     }
 
@@ -40,7 +76,22 @@ module.exports.run = async (bot, message, args) => {
 
         message.guild.unban(toban);
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${toban.id}> has been unbanned.`);
-
+        let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0x00ff00)
+          .setTitle("Temp Unban Event:")
+          .addField("User Unbanned:", user)
+          .addField("Admin:", message.author)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
     }, ms(bantime));
 
 }

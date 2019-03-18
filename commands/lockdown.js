@@ -21,6 +21,22 @@ module.exports.run = async (bot, message, args) => {
 			if (err) console.log(err)
 		});
 		message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Locked down this channel.`);
+		let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0xff0000)
+          .setTitle("Lockdown Event:")
+          .addField("Channel Locked:", message.channel)
+          .addField("Admin:", message.author)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
 	}
 }
 module.exports.help = {

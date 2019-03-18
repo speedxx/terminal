@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -15,6 +16,21 @@ module.exports.run = async (bot, message, args) => {
 
   try{
     await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` UnVC banned ${rMember}.`)
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.RichEmbed()
+      .setColor(0x00ff00)
+      .setTitle("UnVC Ban Event:")
+      .addField("User UnVC banned:", rMember)
+      .addField("Admin:", message.author)
+      .setTimestamp()
+   logchannel.send(eventembed);
+    }
   }catch(e){
   }
 }

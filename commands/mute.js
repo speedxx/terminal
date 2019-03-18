@@ -1,4 +1,5 @@
-const Discord = require("discord.js");
+const fs = require("fs");
+const Discord = require("Discord")
 const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
@@ -35,6 +36,23 @@ module.exports.run = async (bot, message, args) => {
 
     await (tomute.addRole(muterole.id));
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.RichEmbed()
+      .setColor(0xff0000)
+      .setTitle("Mute Event:")
+      .addField("User Muted:", tomute)
+      .addField("Admin:", message.author)
+      .addField("Time:", mutetime)
+      .setTimestamp()
+   logchannel.send(eventembed);
+    }
 
     setTimeout(function() {
         let role = "Muted"
@@ -42,6 +60,22 @@ module.exports.run = async (bot, message, args) => {
         if(!tomute.roles.has(gRole.id)) return 
         tomute.removeRole(muterole.id);
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been unmuted.`);
+        let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0x00ff00)
+          .setTitle("Unmute Event:")
+          .addField("User Unmuted:", rMember)
+          .addField("Admin:", message.author)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
     }, ms(mutetime));
 
 }

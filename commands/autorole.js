@@ -1,4 +1,5 @@
 const fs = require("fs");
+const Discord = require("discord.js")
 
 module.exports.run = async (bot, message, args) => {
 	if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You do not have sufficient permissions to add an autorole.");
@@ -23,6 +24,22 @@ module.exports.run = async (bot, message, args) => {
 			if (err) console.log(err)
 		});
 		message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `The server autorole has been set to **${role.name}**`);
+		let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.RichEmbed()
+      .setColor(0xff0000)
+      .setTitle("Role Event:")
+      .addField("Auto Role:", role)
+      .addField("Admin:", message.author)
+      .setTimestamp()
+   logchannel.send(eventembed);
+    }
 	}
 }
 module.exports.help = {

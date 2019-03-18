@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const ms = require("ms");
+const fs = require("fs")
 
 module.exports.run = async (bot, message, args, client) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " You do not have sufficient permissions to blind members.");
@@ -35,13 +36,45 @@ module.exports.run = async (bot, message, args, client) => {
 
     await (tomute.addRole(muterole.id));
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been blinded for ${ms(ms(mutetime))}`);
+    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    if (!logs[message.guild.id]) { 
+      logs[message.guild.id] = {
+        toggle: 0
+      };
+    } 
+    if (logs[message.guild.id].toggle === 1) {
+      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.RichEmbed()
+      .setColor(0xff0000)
+      .setTitle("Blind Event:")
+      .addField("User Blinded:", tomute)
+      .addField("Time:", mutetime)
+      .addField("Admin:", message.author)
+      .setTimestamp()
+   logchannel.send(eventembed);
+    }
 
     setTimeout(function() {
         if(!tomute.roles.has(muterole.id)) return 
         tomute.removeRole(muterole.id);
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `<@${tomute.id}> has been unblinded.`);
+        let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+        if (!logs[message.guild.id]) { 
+          logs[message.guild.id] = {
+            toggle: 0
+          };
+        } 
+        if (logs[message.guild.id].toggle === 1) {
+          const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
+          let eventembed = new Discord.RichEmbed()
+          .setColor(0x00ff00)
+          .setTitle("Unblind Event:")
+          .addField("User Unblinded:", rMember)
+          .addField("Admin:", message.author)
+          .setTimestamp()
+       logchannel.send(eventembed);
+        }
     }, ms(mutetime));
-
 }
 
 module.exports.help = {
