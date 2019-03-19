@@ -9,11 +9,11 @@ We plan to expand and create more commands for terminal. You may help us by post
 
 ### Where can I find the invitation link?
 [Here](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8)
-<div>
+<div></div>
 [Discord Support Server](https://discord.gg/4yntzpG)
-<div>
+<div></div>
 [discordbots.org](https://discordbots.org/bot/521023036812558356) ([vote for us here](https://discordbots.org/bot/521023036812558356/vote))
-<div>
+<div></div>
 [discord.bots.gg](https://discord.bots.gg/bots/521023036812558356)
 
 ### Terminal Prefix
