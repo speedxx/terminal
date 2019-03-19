@@ -73,7 +73,8 @@ We plan to expand and create more commands for terminal. You may help us by post
 >dtalk,
 >whrole,
 >deletechannel,
->nuke
+>nuke,
+>tempban
 
 ### Server Requirements
 Your server can have two optional channels:
