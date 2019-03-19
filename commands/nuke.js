@@ -6,9 +6,10 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("accept")) {
         let nukeChannel = message.mentions.channels.first();
         let server = message.guild
-    server.createChannel(message.mentions.channels.first().name);
-    message.guild.channels.find(t => t.id == nukeChannel.id).delete();
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Nuked the channel " + message.mentions.channels.first() + " successfully.")
+    const channel = await server.createChannel(message.mentions.channels.first().name);
+    channel.setParent(message.mentions.channels.first().parentID)
+    message.guild.channels.find(t => t.id == nukeChannel.id).delete();
     let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
     if (!logs[message.guild.id]) { 
       logs[message.guild.id] = {
