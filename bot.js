@@ -30,8 +30,8 @@ client.on("guildMemberAdd", member => {
     const logchannel = member.guild.channels.find(channel => channel.name === "terminal-logs");
     let eventembed = new Discord.RichEmbed()
     .setColor(0x00ff00)
-    .setTitle("Member Join Event:")
-    .addField("User:", member)
+    .setAuthor("Member Join Event:", member.user.displayAvatarURL)
+    .addField("User:", member + " (" + member.user.tag + ")")
     .setTimestamp()
  logchannel.send(eventembed);
   }
@@ -57,8 +57,8 @@ client.on("guildMemberRemove", member => {
     const logchannel = member.guild.channels.find(channel => channel.name === "terminal-logs");
     let eventembed = new Discord.RichEmbed()
     .setColor(0xff0000)
-    .setTitle("Member Leave Event:")
-    .addField("User:", member)
+    .setAuthor("Member Leave Event:", member.user.displayAvatarURL)
+    .addField("User:", member + " (" + member.user.tag + ")")
     .setTimestamp()
  logchannel.send(eventembed);
   }
