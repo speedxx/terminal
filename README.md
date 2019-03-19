@@ -9,6 +9,9 @@ We plan to expand and create more commands for terminal. You may help us by post
 
 ### Where can I find the invitation link?
 [Here](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8)
+Discord Support Server
+[discordbots.org](https://discordbots.org/bot/521023036812558356) ([vote for us here](https://discordbots.org/bot/521023036812558356/vote))
+[discord.bots.gg](https://discord.bots.gg/bots/521023036812558356)
 
 ### Terminal Prefix
 `>_`
@@ -73,7 +76,7 @@ We plan to expand and create more commands for terminal. You may help us by post
 Your server can have two optional channels:
 > **terminal-logs**
 
-**This is used for logs** which can be enabled by doing the command: "logs on". If logs is enabled and there is no channel, it will report to the channel the action has taken place in.
+**This is used for logs** which can be enabled by doing the command: "logs on". 
 
 > **terminal-reports**
 
