@@ -1,5 +1,5 @@
 const fs = require("fs");
-const Discord = require("Discord")
+const Discord = require("discord.js")
 module.exports.run = async (bot, message, args) => {
   if (args.includes("@everyone")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Error.');
   if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("/" + message.guild + "/" + message.channel.name + "/" + "You do not have sufficient permissions to remove a role from someone.");

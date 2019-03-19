@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
     if (logs[message.guild.id].toggle === 1) {
       const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
       let eventembed = new Discord.RichEmbed()
-      .setColor(0xff0000)
+      .setColor(0x00ff00)
       .setTitle("Role Event:")
       .addField("Auto Role:", role)
       .addField("Admin:", message.author)

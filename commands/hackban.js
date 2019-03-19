@@ -1,5 +1,5 @@
 const fs = require("fs");
-const Discord = require("Discord")
+const Discord = require("discord.js")
 module.exports.run = async (bot, message, args, discord) => {
     let noid = args[0]
     let reason = args.splice(1).join(' ');

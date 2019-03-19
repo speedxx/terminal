@@ -1,5 +1,5 @@
 const fs = require("fs");
-const Discord = require("Discord")
+const Discord = require("discord.js")
 const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
