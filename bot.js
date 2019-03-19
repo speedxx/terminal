@@ -20,6 +20,21 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.on("guildMemberAdd", member => {
+  let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+  if (!logs[member.guild.id]) { 
+    logs[member.guild.id] = {
+      toggle: 0
+    };
+  } 
+  if (logs[member.guild.id].toggle === 1) {
+    const logchannel = member.guild.channels.find(channel => channel.name === "terminal-logs");
+    let eventembed = new Discord.RichEmbed()
+    .setColor(0x00ff00)
+    .setTitle("Member Join Event:")
+    .addField("User:", member)
+    .setTimestamp()
+ logchannel.send(eventembed);
+  }
     const autoRole = require ("./commands/autorole.js")
     let autorole = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
     if (!autorole[member.guild.id]) { 
@@ -31,6 +46,23 @@ client.on("guildMemberAdd", member => {
     if (!role) return;
     member.addRole(role);
   });
+client.on("guildMemberRemove", member => {
+  let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+  if (!logs[member.guild.id]) { 
+    logs[member.guild.id] = {
+      toggle: 0
+    };
+  } 
+  if (logs[member.guild.id].toggle === 1) {
+    const logchannel = member.guild.channels.find(channel => channel.name === "terminal-logs");
+    let eventembed = new Discord.RichEmbed()
+    .setColor(0xff0000)
+    .setTitle("Member Leave Event:")
+    .addField("User:", member)
+    .setTimestamp()
+ logchannel.send(eventembed);
+  }
+})
 
 client.on('ready', () => {
   client.user.setActivity("your commands", { type: 'WATCHING' })
