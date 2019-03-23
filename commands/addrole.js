@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   await(rMember.addRole(gRole.id));
 
   try{
-    await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Added ${gRole.name} to ${rMember}.`)
+    await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Added **${gRole.name}** to ${rMember}.`)
     let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
     if (!logs[message.guild.id]) { 
       logs[message.guild.id] = {
