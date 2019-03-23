@@ -87,3 +87,5 @@ Your server can have two optional channels:
 > **terminal-reports**
 
 **This is used for reports and tickets**. If there is no reports channel, all tickets and reports will go to the channel the report has taken place in.
+
+If the bot doesn't respond to a certain command, **make sure it has all necessary server permissions.**
