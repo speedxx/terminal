@@ -18,6 +18,9 @@ module.exports.run = (client, message, args) => {
         client.user.setActivity(args.splice(1).join(' '), {type: 'listening'});
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + '**Listening** status ready.');
         break;
+        case 's': //setting activity to "streaming"
+        client.user.setActivity(args.splice(1).join(' '), {type: "STREAMING", url: "https://www.twitch.tv/monstercat"});
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + '**Streaming** status ready.');
     }
 }
 module.exports.help = {
