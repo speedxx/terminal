@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   await(rMember.removeRole(gRole.id));
 
   try{
-    await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Removed ${rMember} from ${gRole.name}.`)
+    await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Removed ${rMember} from **${gRole.name}**.`)
     let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
     if (!logs[message.guild.id]) { 
       logs[message.guild.id] = {
