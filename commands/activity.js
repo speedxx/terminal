@@ -1,10 +1,11 @@
 const Discord = require("discord.js")
+const config = require("../config.json");
 
 module.exports.run = (client, message, args) => {
     if (message.author.id !== "372078453236957185")
     if (message.author.id !== "147765181903011840")
     if (message.author.id !== "365274392680333329") return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You are not a Terminal developer.")
-    
+
     switch(args[0]){
         case 'p': //setting activity to "playing"
         client.user.setActivity(args.splice(1).join(' '), {type: 'playing'});
@@ -21,6 +22,10 @@ module.exports.run = (client, message, args) => {
         case 's': //setting activity to "streaming"
         client.user.setActivity(args.splice(1).join(' '), {type: "STREAMING", url: "https://www.twitch.tv/monstercat"});
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + '**Streaming** status ready.');
+        case 'default': // resets current activity to config activity
+    	client.user.setActivity(config.activity, { type: config.status });
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Reset activity');
+    	return;
     }
 }
 module.exports.help = {
