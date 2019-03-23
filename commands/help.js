@@ -142,7 +142,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nick:** A command that nicknames the bot to whatever you want it named. Usage: >_nick (name)")
     } else {
     if (args.includes("activity")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Activity:** [Bot admin command] A command that sets the bot activity to whatever you want the activity to be. Usage: >_activity (p/w/l/s) (activity)")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Activity:** [Bot admin command] A command that sets the bot activity to whatever you want the activity to be. Usage: >_activity (default) or >_activity (p/w/l) (activity)")
     } else {
     if (args.includes("suggest")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Suggest:** A command that sends the bot developers your suggestions. Usage: >_suggest (suggestion)")
