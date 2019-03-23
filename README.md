@@ -14,7 +14,9 @@ We plan to expand and create more commands for terminal. You may help us by post
 
 [discordbots.org](https://discordbots.org/bot/521023036812558356) ([vote for us here](https://discordbots.org/bot/521023036812558356/vote)), 
 
-[discord.bots.gg](https://discord.bots.gg/bots/521023036812558356)
+[discord.bots.gg](https://discord.bots.gg/bots/521023036812558356),
+
+[Github.io Webpage](https://squaregithub.github.io/terminal/)
 
 ### Terminal Prefix
 `>_`
