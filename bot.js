@@ -182,7 +182,7 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${m
     const dembed2 = new Discord.RichEmbed()
     .setAuthor("Attempted Invite")
     .setColor(Math.floor(Math.random() * 16777214) + 1)
-    .addField("**/" + message.guild + "/" + message.channel.name + "/** \n  ", `${message.author} tried posting an invite in channel **#${message.channel.name}**.`)
+    .addField("**/" + message.guild + "/" + message.channel.name + "/** \n  ", `${message.author} (${message.author.tag}) tried posting an invite in channel **#${message.channel.name}**.`)
     .setTimestamp()
       logdelete.send(dembed2);
   }}
