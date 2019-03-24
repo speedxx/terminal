@@ -14,7 +14,9 @@ We plan to expand and create more commands for terminal. You may help us by post
 
 [discordbots.org](https://discordbots.org/bot/521023036812558356) ([vote for us here](https://discordbots.org/bot/521023036812558356/vote)), 
 
-[discord.bots.gg](https://discord.bots.gg/bots/521023036812558356)
+[discord.bots.gg](https://discord.bots.gg/bots/521023036812558356),
+
+[Github.io Webpage](https://squaregithub.github.io/terminal/)
 
 ### Terminal Prefix
 `>_`
@@ -74,7 +76,9 @@ We plan to expand and create more commands for terminal. You may help us by post
 >whrole,
 >deletechannel,
 >nuke,
->tempban
+>tempban,
+>permmute,
+>permblind
 
 ### Server Requirements
 Your server can have two optional channels:
@@ -85,3 +89,5 @@ Your server can have two optional channels:
 > **terminal-reports**
 
 **This is used for reports and tickets**. If there is no reports channel, all tickets and reports will go to the channel the report has taken place in.
+
+If the bot doesn't respond to a certain command, **make sure it has all necessary server permissions.**
