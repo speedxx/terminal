@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
   try{
     await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` UnVC banned ${rMember}.`)
+    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
     if (!logs[message.guild.id]) { 
       logs[message.guild.id] = {
         toggle: 0

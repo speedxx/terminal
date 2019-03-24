@@ -19,6 +19,29 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
+client.on('messageReactionAdd', (messageReaction, user) => {
+if (messageReaction.emoji.name === "🚩") {
+messageReaction.message.channel.send("**/" + messageReaction.message.guild + "/" + messageReaction.message.channel.name + "/** \n  " + "Flagged the post.")
+let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+if (!logs[messageReaction.message.guild.id]) { 
+  logs[messageReaction.message.guild.id] = {
+    toggle: 0
+  };
+} 
+if (logs[messageReaction.message.guild.id].toggle === 1) {
+  const logchannel = messageReaction.message.guild.channels.find(channel => channel.name === "terminal-logs");
+  let eventembed = new Discord.RichEmbed()
+  .setColor(0x00ff00)
+  .setTitle("Flag Event:")
+  .addField("Flagged Message:", messageReaction.message)
+  .addField("Flagged Message Author:", messageReaction.message.author)
+  .addField("By:", user)
+  .setTimestamp()
+logchannel.send(eventembed);
+}
+}
+});
+
 client.on("guildMemberAdd", member => {
   let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
   if (!logs[member.guild.id]) { 
