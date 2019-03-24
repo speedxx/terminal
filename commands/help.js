@@ -136,7 +136,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Create Channel:** A command that creates a channel. Usage: >_createchannel (name)")
     } else {
     if (args.includes("reload")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Reload:** [Bot admin command] A command that reloads all commands. Usage: >_reload")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Reload:** [Bot admin command] A command that reloads a specific command. Usage: >_reload (command)")
     } else {
     if (args.includes("nick")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Nick:** A command that nicknames the bot to whatever you want it named. Usage: >_nick (name)")
