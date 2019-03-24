@@ -32,6 +32,7 @@ client.on("guildMemberAdd", member => {
     .setColor(0x00ff00)
     .setAuthor("Member Join Event:", member.user.displayAvatarURL)
     .addField("User:", member + " (" + member.user.tag + ")")
+    .setFooter("User ID: " + member.id)
     .setTimestamp()
  logchannel.send(eventembed);
   }
@@ -59,6 +60,7 @@ client.on("guildMemberRemove", member => {
     .setColor(0xff0000)
     .setAuthor("Member Leave Event:", member.user.displayAvatarURL)
     .addField("User:", member + " (" + member.user.tag + ")")
+    .setFooter("User ID: " + member.id)
     .setTimestamp()
  logchannel.send(eventembed);
   }
@@ -178,7 +180,7 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${m
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
     const logdelete = message.guild.channels.find(channel => channel.name === "terminal-logs");
     const dembed2 = new Discord.RichEmbed()
-    .setAuthor("Message deletion")
+    .setAuthor("Attempted Invite")
     .setColor(Math.floor(Math.random() * 16777214) + 1)
     .addField("**/" + message.guild + "/" + message.channel.name + "/** \n  ", `${message.author} tried posting an invite in channel **#${message.channel.name}**.`)
     .setTimestamp()
