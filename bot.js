@@ -134,31 +134,36 @@ client.on('message', async message => {
       mode: 0
     };
   }
-  if (censor[message.guild.id].toggle === 1) {
-
-
-    // This section will contain slurs!
-    let swearwords = ["slut", "sluts", "nigg", "niggs", "nigger", "niggers", "nignog", "nig-nog", "nignogs", "nig-nogs", "niga", "niger", "nigas", "nigers", "negro", "niglet", "negros", "niglets", "whore", "whores", "gypsy", "fag", "gypsies", "fags", "gypsys", "faggot", "faggots"]
-    for (let word of message.content.toLowerCase().split(/\s+/g)){
-    if (swearwords.includes(word)) {
-message.delete();
-message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${message.author}, you cannot say slurs as this server is in censoring mode.`)
-}
-}
-}
   if (pg[message.guild.id].mode === 1) {
 
 
     // This section will contain swears!
-    let swearwords = ["fuck", "nignog", "nig-nog", "nignogs", "nig-nogs", "ass", "asses", "bastard", "bastards", "bitch", "bitches", "bitchs", "slut", "sluts", "pussy", "pussies", "pussys", "dick", "penis", "bollock", "dicks", "penises", "bollocks", "crap", "cunt", "cunts", "frigger", "shit", "nigg", "niga", "niger", "negro", "niggs", "nigas", "nigers", "negroes", "negros", "niglet", "niglets", "whore", "twat", "gypsy", "fag", "faggot", "whores", "twats", "gypsies", "gypsys", "fags", "faggots"]
-    for (let word of message.content.toLowerCase().split(/\s+/g)){
-    if (swearwords.includes(word)) {
+    let swearwords = ["fuck", "nignog", "testsquare", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "niglet", "whore", "twat", "gypsy", "fag", "faggot"]
+    for (var i = 0; i < swearwords.length; i++) {
+      if (message.content.includes(swearwords[i])) {
 message.delete();
-message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${message.author}, you cannot swear as this server is in PG mode.`)
+let censor = "[swear word]"
+    let edit = message.content.replace(new RegExp(swearwords[i], "g"), censor);
+    message.delete();
+    return message.channel.send(`**/${message.guild}/${message.channel.name}/**\n**${message.author.username}:** ${edit}`);
 }
 }
-}
+} else {
+if (censor[message.guild.id].toggle === 1) {
 
+
+  // This section will contain slurs!
+  let slurs = ["slut", "nigg", "nignog", "testsquare", "nig-nog", "niga", "niger", "negro", "niglet", "whore", "gypsy", "fag", "faggot", ]
+  for (var i = 0; i < slurs.length; i++) {
+    if (message.content.includes(slurs[i])) {
+message.delete();
+let censor = "[slur]"
+  let edit = message.content.replace(new RegExp(slurs[i], 'g'), censor);
+  message.delete();
+ return message.channel.send(`**/${message.guild}/${message.channel.name}/**\n**${message.author.username}:** ${edit}`);
+}
+}
+}}
   const Prefix = require ("./commands/prefix.js")
   let prefixjson = JSON.parse(fs.readFileSync("./prefix.json", "utf8"));
   if (!prefixjson[message.guild.id]) { 
