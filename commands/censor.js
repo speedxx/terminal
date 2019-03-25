@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 	let censor = JSON.parse(fs.readFileSync("./censor.json", "utf8"));
 	if (!args[0]) { 
 		censor[message.guild.id] = {
-			word: "terminal sucks"
+			toggle: 0
 		};
 		fs.writeFile("./censor.json", JSON.stringify(censor), (err) => {
 			if (err) console.log(err);
@@ -14,14 +14,13 @@ module.exports.run = async (bot, message, args) => {
 		message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Cleared all censorship of words.");
 	}
 	if (args[0]) { 
-		let words = args.join(" ");
 		censor[message.guild.id] = {
-			word: words
+			toggle: 1
 		};
 		fs.writeFile("./censor.json", JSON.stringify(censor), (err) => {
 			if (err) console.log(err)
 		});
-		message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Added censorship for that word.`);
+		message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Censored all ethnic slurs.`);
 	}
 }
 module.exports.help = {

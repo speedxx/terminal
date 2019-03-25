@@ -21,7 +21,9 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on('messageReactionAdd', (messageReaction, user) => {
 if (messageReaction.emoji.name === "🚩") {
-messageReaction.message.channel.send("**/" + messageReaction.message.guild + "/" + messageReaction.message.channel.name + "/** \n  " + "Flagged the post.")
+messageReaction.message.channel.send("**/" + messageReaction.message.guild + "/" + messageReaction.message.channel.name + "/** \n  " + "Flagged the post.").then(msg => {
+  msg.delete(3000)
+})
 let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
 if (!logs[messageReaction.message.guild.id]) { 
   logs[messageReaction.message.guild.id] = {
@@ -101,7 +103,7 @@ client.on('message', async message => {
   let censor = JSON.parse(fs.readFileSync("./censor.json", "utf8"));
   if (!censor[message.guild.id]) { 
     censor[message.guild.id] = {
-      word: "terminal sucks"
+      word: 0
     };
   }
   let whitelist = JSON.parse(fs.readFileSync("./whitelist.json", "utf8"));
@@ -124,10 +126,7 @@ client.on('message', async message => {
     const watchmsg = message.guild.channels.find(channel => channel.name === "terminal-logs");
     watchmsg.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `There was a message in the watchlisted channel by ` + message.author.tag + ' (' + message.author.id + ') which contains: **' + message.content + '**')
   }
-  if (message.content.toLowerCase().includes(censor[message.guild.id].word)) {
-    message.delete(50)
-    message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot say that word as administrators have blocked it!")
-  }
+
   const PG = require ("./commands/pg.js")
   let pg = JSON.parse(fs.readFileSync("./pg.json", "utf8"));
   if (!pg[message.guild.id]) { 
@@ -135,15 +134,27 @@ client.on('message', async message => {
       mode: 0
     };
   }
+  if (censor[message.guild.id].toggle === 1) {
+
+
+    // This section will contain slurs!
+    let swearwords = ["slut", "nigg", "nignog", "nig-nog", "niga","niger", "negro", "niglet", "whore", "kill all blacks", "kill blacks", "kill all whites", "kill whites", "gypsy", "fag", "faggot", ]
+    for (let word of message.content.toLowerCase().split(/\s+/g)){
+    if (swearwords.includes(word)) {
+message.delete();
+message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${message.author}, you cannot say slurs as this server is in censoring mode.`)
+}
+}
+}
   if (pg[message.guild.id].mode === 1) {
 
 
     // This section will contain swears!
-    let swearwords = ["fuck", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "whore", "twat"]
+    let swearwords = ["fuck", "nignog", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "niglet", "whore", "twat", "kill all blacks", "kill blacks", "kill all whites", "kill whites", "gypsy", "fag", "faggot"]
     for (let word of message.content.toLowerCase().split(/\s+/g)){
     if (swearwords.includes(word)) {
 message.delete();
-message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${message.author}, you cannot swear as this server is in PG mode!`)
+message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${message.author}, you cannot swear as this server is in PG mode.`)
 }
 }
 }
