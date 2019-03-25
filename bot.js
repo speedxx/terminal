@@ -153,7 +153,7 @@ if (censor[message.guild.id].toggle === 1) {
 
 
   // This section will contain slurs!
-  let slurs = ["slut", "nigg", "nignog", "nig-nog", "niga", "niger", "niqqer", "nigqer", "niqger", "negro", "niglet", "whore", "gypsy", "fag", "faggot"]
+  let slurs = ["slut", "nignog", "nig-nog", "niger", "niqqer", "nigqer", "niqger", "negro", "niglet", "whore", "gypsy", "fag", "faggot"]
   for (var i = 0; i < slurs.length; i++) {
     if (message.content.toLowerCase().includes(slurs[i])) {
 message.delete();
