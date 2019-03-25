@@ -22,6 +22,7 @@ module.exports.run = (client, message, args) => {
         case 's': //setting activity to "streaming"
         client.user.setActivity(args.splice(1).join(' '), {type: "STREAMING", url: "https://www.twitch.tv/monstercat"});
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + '**Streaming** status ready.');
+        break;
         case 'default': // resets current activity to config activity
     	client.user.setActivity(config.activity, { type: config.status });
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Reset activity');
