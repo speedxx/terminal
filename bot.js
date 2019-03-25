@@ -138,9 +138,9 @@ client.on('message', async message => {
 
 
     // This section will contain swears!
-    let swearwords = ["fuck", "nignog", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "niglet", "whore", "twat", "gypsy", "fag", "faggot"]
+    let swearwords = ["fuck", "nignog", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "vagina", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "niga", "niqqer", "nigqer", "niqger", "niger", "negro", "niglet", "whore", "twat", "gypsy", "fag", "faggot"]
     for (var i = 0; i < swearwords.length; i++) {
-      if (message.content.includes(swearwords[i])) {
+      if (message.content.toLowerCase().includes(swearwords[i])) {
 message.delete();
 let censor = "[swear word]"
     let edit = message.content.replace(new RegExp(swearwords[i], "g"), censor);
@@ -153,12 +153,12 @@ if (censor[message.guild.id].toggle === 1) {
 
 
   // This section will contain slurs!
-  let slurs = ["slut", "nigg", "nignog", "nig-nog", "niga", "niger", "negro", "niglet", "whore", "gypsy", "fag", "faggot", ]
+  let slurs = ["slut", "nigg", "nignog", "nig-nog", "niga", "niger", "niqqer", "nigqer", "niqger", "negro", "niglet", "whore", "gypsy", "fag", "faggot"]
   for (var i = 0; i < slurs.length; i++) {
-    if (message.content.includes(slurs[i])) {
+    if (message.content.toLowerCase().includes(slurs[i])) {
 message.delete();
 let censor = "[slur]"
-  let edit = message.content.replace(new RegExp(slurs[i], 'g'), censor);
+  let edit = message.content.toLowerCase().replace(new RegExp(slurs[i], 'g'), censor);
   message.delete();
  return message.channel.send(`**/${message.guild}/${message.channel.name}/**\n**${message.author.username}:** ${edit}`);
 }
