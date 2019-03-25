@@ -138,7 +138,7 @@ client.on('message', async message => {
 
 
     // This section will contain slurs!
-    let swearwords = ["slut", "nigg", "nignog", "nig-nog", "niga","niger", "negro", "niglet", "whore", "kill all blacks", "kill blacks", "kill all whites", "kill whites", "gypsy", "fag", "faggot", ]
+    let swearwords = ["slut", "sluts", "nigg", "niggs", "nigger", "niggers", "nignog", "nig-nog", "nignogs", "nig-nogs", "niga", "niger", "nigas", "nigers", "negro", "niglet", "negros", "niglets", "whore", "whores", "gypsy", "fag", "gypsies", "fags", "gypsys", "faggot", "faggots"]
     for (let word of message.content.toLowerCase().split(/\s+/g)){
     if (swearwords.includes(word)) {
 message.delete();
@@ -150,7 +150,7 @@ message.channel.send(`**/${message.guild}/${message.channel.name}/**\nSorry, ${m
 
 
     // This section will contain swears!
-    let swearwords = ["fuck", "nignog", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "niglet", "whore", "twat", "kill all blacks", "kill blacks", "kill all whites", "kill whites", "gypsy", "fag", "faggot"]
+    let swearwords = ["fuck", "nignog", "nig-nog", "nignogs", "nig-nogs", "ass", "asses", "bastard", "bastards", "bitch", "bitches", "bitchs", "slut", "sluts", "pussy", "pussies", "pussys", "dick", "penis", "bollock", "dicks", "penises", "bollocks", "crap", "cunt", "cunts", "frigger", "shit", "nigg", "niga", "niger", "negro", "niggs", "nigas", "nigers", "negroes", "negros", "niglet", "niglets", "whore", "twat", "gypsy", "fag", "faggot", "whores", "twats", "gypsies", "gypsys", "fags", "faggots"]
     for (let word of message.content.toLowerCase().split(/\s+/g)){
     if (swearwords.includes(word)) {
 message.delete();
