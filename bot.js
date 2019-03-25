@@ -138,7 +138,7 @@ client.on('message', async message => {
 
 
     // This section will contain swears!
-    let swearwords = ["fuck", "nignog", "testsquare", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "niglet", "whore", "twat", "gypsy", "fag", "faggot"]
+    let swearwords = ["fuck", "nignog", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "nigg", "niga","niger", "negro", "niglet", "whore", "twat", "gypsy", "fag", "faggot"]
     for (var i = 0; i < swearwords.length; i++) {
       if (message.content.includes(swearwords[i])) {
 message.delete();
@@ -153,7 +153,7 @@ if (censor[message.guild.id].toggle === 1) {
 
 
   // This section will contain slurs!
-  let slurs = ["slut", "nigg", "nignog", "testsquare", "nig-nog", "niga", "niger", "negro", "niglet", "whore", "gypsy", "fag", "faggot", ]
+  let slurs = ["slut", "nigg", "nignog", "nig-nog", "niga", "niger", "negro", "niglet", "whore", "gypsy", "fag", "faggot", ]
   for (var i = 0; i < slurs.length; i++) {
     if (message.content.includes(slurs[i])) {
 message.delete();
