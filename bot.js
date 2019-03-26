@@ -20,6 +20,18 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.on('messageReactionAdd', (messageReaction, user) => {
+  let reactrole = JSON.parse(fs.readFileSync("./react.json", "utf8"));
+  if (!reactrole[messageReaction.message.guild.id]) {
+    reactrole[messageReaction.message.guild.id] = {
+      messageID: 0,
+      role: 0
+    }}
+  if (messageReaction.message.id === reactrole[messageReaction.message.guild.id].messageID) {
+    var reactionrole = reactrole[messageReaction.message.guild.id].role.id
+    let member = messageReaction.message.guild.member(user);
+    member.addRole(reactionrole)
+    return user.send("**/" + user.username + "/DM** \n You have been given a role on " + messageReaction.message.guild + " from a reactrole.")
+  }
 if (messageReaction.emoji.name === "🚩") {
 messageReaction.message.channel.send("**/" + messageReaction.message.guild + "/" + messageReaction.message.channel.name + "/** \n  " + "Flagged the post.").then(msg => {
   msg.delete(3000)
@@ -43,7 +55,20 @@ logchannel.send(eventembed);
 }
 }
 });
-
+client.on('messageReactionRemove', (messageReaction, user) => {
+  let reactrole = JSON.parse(fs.readFileSync("./react.json", "utf8"));
+  if (!reactrole[messageReaction.message.guild.id]) {
+    reactrole[messageReaction.message.guild.id] = {
+      messageID: 0,
+      role: 0
+    }}
+  if (messageReaction.message.id === reactrole[messageReaction.message.guild.id].messageID) {
+    var reactionrole = reactrole[messageReaction.message.guild.id].role.id
+    let member = messageReaction.message.guild.member(user);
+    member.removeRole(reactionrole)
+    return user.send("**/" + user.username + "/DM** \n You have been removed from a role on " + messageReaction.message.guild + " from removing a reactrole.")
+  }
+})
 client.on("guildMemberAdd", member => {
   let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
   if (!logs[member.guild.id]) { 
