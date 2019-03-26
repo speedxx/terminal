@@ -79,11 +79,11 @@ client.on("guildMemberAdd", member => {
   if (logs[member.guild.id].toggle === 1) {
     const logchannel = member.guild.channels.find(channel => channel.name === "terminal-logs");
     let eventembed = new Discord.RichEmbed()
-    .setColor(0x00ff00)
-    .setAuthor("Member Join Event:", member.user.displayAvatarURL)
-    .addField("User:", member + " (" + member.user.tag + ")")
-    .setFooter("User ID: " + member.id)
-    .setTimestamp()
+        .setTitle(`Member Join Event:`)
+        .setThumbnail(member.displayAvatarURL, true)
+        .addField("User", member, true)
+        .addField("ID", member.id, true)
+        .setColor(0x00ff00);  
  logchannel.send(eventembed);
   }
     const autoRole = require ("./commands/autorole.js")
