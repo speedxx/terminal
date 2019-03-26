@@ -78,7 +78,8 @@ We plan to expand and create more commands for terminal. You may help us by post
 >nuke,
 >tempban,
 >permmute,
->permblind
+>permblind,
+>createrole
 
 ### Server Requirements
 Your server can have two optional channels:
