@@ -6,7 +6,6 @@ module.exports.run = async (bot, message, args) => {
   if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to manage roles.");
   let messageargs = args[0]
   if (args.includes("off")) {
-    message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n " + "Removed all react roles.")
     let reactrole = JSON.parse(fs.readFileSync("./react.json", "utf8"));
     reactrole[message.guild.id] = {
       messageID: 0,
@@ -14,7 +13,8 @@ module.exports.run = async (bot, message, args) => {
     };
     fs.writeFile("./react.json", JSON.stringify(reactrole), (err) => {
 			if (err) console.log(err)
-		});
+    });
+    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n " + "Removed all react roles.")
   }
   if(!messageargs) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n " + "  Please state a message ID.");
   let role = args.splice(1).join(" ");
