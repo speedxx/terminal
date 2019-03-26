@@ -19,6 +19,7 @@ module.exports.run = async (client, message, args) => {
          let eventembed = new Discord.RichEmbed()
          .setColor(0xff0000)
          .setTitle("Channel Deletion Event:")
+         .addField("Channel Name:", deleteChannel.name)
          .addField("Admin:", message.author)
          .setTimestamp()
       logchannel.send(eventembed);

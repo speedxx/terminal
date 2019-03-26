@@ -90,9 +90,6 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("hackban")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Hackban:** A command that bans a user ID. -u = include person who banned in ban reason. Usage: >_hackban (user id) (reason) (-u)")
     } else {
-    if (args.includes("delete")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Delete:** A command that deletes the previous message. Usage: >_delete")
-    } else {
      if (args.includes("github")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Github:** A command that directs you to our github page. Usage: >_github")
     } else {
@@ -217,13 +214,13 @@ module.exports.run = async (client, message, args) => {
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `permmute`, `unmute`, `blind`, `permblind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`, `createrole`")
-        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `autoreact`")
+        .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `pin`, `unpin`, `logs`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
         .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"

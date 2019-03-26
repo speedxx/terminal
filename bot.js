@@ -198,15 +198,6 @@ let censor = "[slur]"
   }
   let prefix = prefixjson[message.guild.id].prefix
 
-  if (message.content.toLowerCase().includes(prefix + "delete")) {
-    if (message.author.bot) return;
-    if (message.author.id != "372078453236957185") {
-      if (message.author.id != "147765181903011840") 
-      if (message.author.id != "365274392680333329") {
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**" + "You may not run this command.")
-    }}
-    message.channel.bulkDelete(2);
-  }
   const Lockdown = require ("./commands/lockdown.js")
   let lockdown = JSON.parse(fs.readFileSync("./lockdown.json", "utf8"));
   if (!lockdown[message.guild.id]) { 
