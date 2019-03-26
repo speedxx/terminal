@@ -181,7 +181,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**D Talk:** [Bot admin command] A command that sends a message to a user by ID. Usage: >_dtalk (user id) (message)")
     } else {
     if (args.includes("whrole")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Wh Role:** [Bot admin command] A command that shows you all the members in a role. Usage: >_whrole (role name)")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Who Has Role:** A command that shows you all the members in a role. Usage: >_whrole (role name)")
     } else {
     if (args.includes("deletechannel")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Delete Channel:** A command that deletes a channel by mention. Usage: >_deletechannel (channel mention) accept")
@@ -201,6 +201,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("permblind")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Permanent Blind:** A command that blinds a user. Usage: >_permblind (user)")
     } else {
+    if (args.includes("createrole")) {
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Create Role:** A command that creates a role. Usage: >_createrole (role)")
+    } else {
 
 
         fs.readdir("./commands/", (err, files) => {
@@ -213,14 +216,14 @@ module.exports.run = async (client, message, args) => {
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
         .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `permmute`, `unmute`, `blind`, `permblind`, `unblind`, `warn`, `vcban`, `unvcban`")
-        .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`")
+        .addField("Roles:", "`addrole`, `removerole`, `autorole`, `whrole`, `createrole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `delete`, `pin`, `unpin`, `logs`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
         .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
