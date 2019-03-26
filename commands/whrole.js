@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
     let role = message.mentions.roles.first() || message.guild.roles.get(args[0]) || message.guild.roles.find(r => r.name.toLowerCase() == args.join(' ').toLocaleLowerCase());
     if (args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please supply a role name.")
     if(!role) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " That role doesn't exist, if it does exist: check your spelling");
-      let roleName = message.content.split(" ").slice(1).join(" ");
+      let roleName = message.content.split(" ").slice(1).join(" ").toLowerCase();
   
       let membersWithRole = message.guild.members.filter(member => { 
           return member.roles.find("name", roleName);
@@ -24,4 +24,3 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "whrole"
 }
-  
