@@ -78,7 +78,8 @@ We plan to expand and create more commands for terminal. You may help us by post
 >tempban,
 >permmute,
 >permblind,
->createrole
+>createrole,
+>reactrole
 
 ### Server Requirements
 Your server can have two optional channels:
