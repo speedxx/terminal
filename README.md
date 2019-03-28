@@ -79,7 +79,8 @@ We plan to expand and create more commands for terminal. You may help us by post
 >permmute,
 >permblind,
 >createrole,
->reactrole
+>reactrole,
+>ticket
 
 ### Server Requirements
 Your server can have two optional channels:
