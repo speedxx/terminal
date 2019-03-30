@@ -112,7 +112,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Channel Info:** A command that displays all the channel information. Usage: >_channelinfo")
     } else {
      if (args.includes("userinfo")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**User Info:** A command that displays all the information on one user. Usage: >_userinfo (mention)")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**User Info:** A command that displays all the information on one user. Usage: >_userinfo (mention) or >_userinfo")
     } else {
      if (args.includes("pg")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**PG Mode:** A command that turns on PG mode. This blocks all swears in the server. Usage: >_pg (on/off)")
@@ -148,7 +148,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Role Info:** A command that supplies all known information about a role. Usage: >_roleinfo (role)")
     } else {
     if (args.includes("avatar")) {
-            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Avatar:** A command that fetches a users avatar URL. Usage: >_avatar (mention)")
+            message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Avatar:** A command that fetches a users avatar URL. Usage: >_avatar (mention) or >_avatar")
     } else {
     if (args.includes("say")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Say:** [Bot admin command] A command that repeats whatever you say. Usage: >_say (text)")
@@ -156,7 +156,7 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("logs")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Logs:** A command that logs bans/kicks etc. Usage: >_logs or >_logs on")
     } else {
-	if (args.includes("watch")) {
+    if (args.includes("watch")) {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Watch:** A command that logs a channel. Usage: >_watch (channel id)/>_watch")
     } else {
     if (args.includes("autoreact")) {

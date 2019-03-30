@@ -6,6 +6,7 @@ const embed = new Discord.RichEmbed()
     .setColor(Math.floor(Math.random() * 16777214) + 1)
     .setAuthor(msg.author.tag)
     .setImage(msg.author.displayAvatarURL)
+    msg.channel.send("**/" + msg.guild + "/" + msg.channel.name + "/**")
     return msg.channel.send(embed);
     }
 let user = msg.mentions.users.first() || msg.author
@@ -13,6 +14,7 @@ let user = msg.mentions.users.first() || msg.author
     .setColor(Math.floor(Math.random() * 16777214) + 1)
     .setAuthor(user.tag)
     .setImage(user.displayAvatarURL)
+    msg.channel.send("**/" + msg.guild + "/" + msg.channel.name + "/**")
     return msg.channel.send(dembed);
     }
 module.exports.help = {
