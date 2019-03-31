@@ -202,7 +202,10 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Create Role:** A command that creates a role. Usage: >_createrole (role)")
     } else {
     if (args.includes("reactrole")) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Reaction Role:** A command that gives a role when a reaction is added to a message and removes it when the reaction has been removed. Do >_reactrole off to turn off react role messages. Usage: >_reactrole (message ID) (role name)")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Reaction Role:** A command that gives a role when a reaction is added to a message and removes it when the reaction has been removed. Usage: >_reactrole (message ID) (role name) or >_reactrole off")
+    } else {
+    if (args.includes("serverlist")) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Server List:** A command that filters guild size to 100 in all the servers terminal is in, and displays it. Usage: >_serverlist")
     } else {
 
 
@@ -219,11 +222,11 @@ module.exports.run = async (client, message, args) => {
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `reactrole`, `whrole`, `createrole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `pin`, `unpin`, `logs`, `autoreact`")
         .addField("Info:", "`serverinfo`, `botinfo`, `channelinfo`, `userinfo`, `roleinfo`, `serverinvite`")
-        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`")
+        .addField("Other:", "`developers`, `image`, `help`, `uptime`, `ping`, `prefix`, `github`, `invite`, `createchannel`, `deletechannel`, `nuke`, `nick`, `suggest`, `avatar`, `serverlist`")
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"

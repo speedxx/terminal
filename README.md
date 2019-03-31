@@ -80,7 +80,8 @@ We plan to expand and create more commands for terminal. You may help us by post
 >permblind,
 >createrole,
 >reactrole,
->ticket
+>ticket,
+>serverlist
 
 ### Server Requirements
 Your server can have two optional channels:
