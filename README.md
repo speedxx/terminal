@@ -81,7 +81,8 @@ We plan to expand and create more commands for terminal. You may help us by post
 >createrole,
 >reactrole,
 >ticket,
->serverlist
+>serverlist,
+>setavatar
 
 ### Server Requirements
 Your server can have two optional channels:
