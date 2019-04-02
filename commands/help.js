@@ -207,6 +207,9 @@ module.exports.run = async (client, message, args) => {
     if (args.includes("serverlist")) {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Server List:** [Bot admin command] A command that filters guild size to 100 in all the servers terminal is in, and displays it. Usage: >_serverlist")
     } else {
+    if (args.includes("setavatar")) {
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "**Set Avatar:** [Bot admin command] A command that changes terminal's avatar. Usage: >_setavatar or >_setavatar (reset)")
+    } else {
 
 
         fs.readdir("./commands/", (err, files) => {
@@ -217,7 +220,7 @@ module.exports.run = async (client, message, args) => {
         .setAuthor('Terminal Panel - Prefix: ' + prefix)
         .setTitle(jsfiles.length + " commands:")
         .setDescription("Terminal: A moderation bot. Do " + prefix + "help (command) to get more info.")
-        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`, `serverlist`")
+        .addField("Bot Admins:", "`activity`, `shutdown`, `restart`, `blacklist`, `gleave`, `reload`, `ctalk`, `dtalk`, `serverlist`, `setavatar`")
         .addField("Punishment:", "`kick`, `ban`, `unban`, `softban`, `tempban`, `hackban`, `mute`, `permmute`, `unmute`, `blind`, `permblind`, `unblind`, `warn`, `vcban`, `unvcban`")
         .addField("Roles:", "`addrole`, `removerole`, `autorole`, `reactrole`, `whrole`, `createrole`")
         .addField("Messages:", "`censor`, `pg`, `lockdown`, `purge`, `invites`, `announce`, `report`, `poll`, `pin`, `unpin`, `logs`, `autoreact`")
@@ -226,7 +229,7 @@ module.exports.run = async (client, message, args) => {
      message.channel.send("**/" + message.guild + "/" + message.channel.name + "/**");
      message.channel.send(serverembed);
 
-})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+})}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 };
 module.exports.help = {
     name: "help"
