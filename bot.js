@@ -119,7 +119,6 @@ client.on("guildMemberRemove", member => {
 client.on('ready', () => {
   client.user.setActivity("your commands", { type: 'WATCHING' })
   console.log(`Terminal booted up sucessfully.`);
-  client.user.setAvatar("https://cdn.discordapp.com/attachments/543555036509241365/562316671902154802/ezgif.com-gif-to-apng.png");
 });
 
 client.on('message', async message => {
