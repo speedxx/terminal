@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args, client) => {
         message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Silenced the kick.")
         } else {
             try{
-                await user.send("**/" + message.author.username + "/DM** \n  " + "You have been kicked from " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + args.splice(1).join(' '))
+                await user.send("**/" + message.author.username + "/DM** \n  " + "You have been kicked from " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + reason)
                  }catch(e){
                    console.log(e.stack);
                    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Failed to send DM.`)

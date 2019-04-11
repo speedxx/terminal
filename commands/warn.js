@@ -10,7 +10,7 @@ if (user === message.author) return message.channel.send("**/" + message.guild +
 let reason = args.splice(1).join(' ');
 
   try{
-    await user.send("**/" + message.author.username + "/DM** \n  " + "You have been warned in " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + args.splice(1).join(' '))
+    await user.send("**/" + message.author.username + "/DM** \n  " + "You have been warned in " + message.guild + ", by admin name: " + message.author + ", for the reason of: " + reason)
     message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + `Warned ` + user + ` for the reason of: ` + reason)
   }catch(e){
     console.log(e.stack);
