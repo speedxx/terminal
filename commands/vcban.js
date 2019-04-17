@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if (args.includes("@here")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Error.');
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!tomute) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Couldn't find user.");
-    if (rMember === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot VC ban yourself.");  
+    if (tomute === message.author) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot VC ban yourself.");
     if (tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "The user you are trying to vc ban is either the same, or higher ranking than you.");
     let muterole = message.guild.roles.find(`name`, "VC Banned");
 
@@ -67,7 +67,7 @@ module.exports.run = async (bot, message, args) => {
           let eventembed = new Discord.RichEmbed()
           .setColor(0x00ff00)
           .setTitle("UnVC Ban Event:")
-          .addField("User UnVC banned:", rMember)
+          .addField("User UnVC banned:", tomute)
           .addField("Admin:", message.author)
           .setTimestamp()
        logchannel.send(eventembed);
