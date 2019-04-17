@@ -82,7 +82,8 @@ createrole,
 reactrole,
 ticket,
 serverlist,
-setavatar
+setavatar,
+say
 
 ### Server Requirements
 Your server can have two optional channels:
