@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     if (!args || args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please put in an issue to put in a ticket.")
 let reportchannel = "terminal-reports"
       if (message.guild.channels.exists('name', reportchannel)) {
-        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your report has been sent to the reports channel.")
+        message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Your support ticket has been sent to the reports channel.")
         const logreport = message.guild.channels.find(channel => channel.name === "terminal-reports");
         let reportmsg = args.join(' ');
         const rembed = new Discord.RichEmbed()
@@ -30,4 +30,3 @@ let reportchannel = "terminal-reports"
 module.exports.help = {
     name: "ticket"
 }
-
