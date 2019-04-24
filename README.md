@@ -84,7 +84,11 @@ ticket,
 serverlist,
 setavatar,
 say,
-serverinfo
+serverinfo,
+pin,
+unpin,
+time,
+pg
 
 ### Server Requirements
 Your server can have two optional channels:
