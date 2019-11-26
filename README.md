@@ -1,3 +1,6 @@
+# UPDATE 11/26/19
+This bot is no longer updated, and will NOT be hosted by any of the developers until further notice. 
+
 # What is terminal?
 A Moderation Bot, made for Discord with over 50 commands, which is coded in Java Script. The code is open source, may be used, but please credit to this github.
 
