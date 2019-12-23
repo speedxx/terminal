@@ -9,6 +9,8 @@ const Censor = require("./commands/censor.js")
 const PG = require("./commands/pg.js")
 const Invites = require("./commands/invites.js")
 const Prefix = require("./commands/prefix.js")
+const Lockdown = require("./commands/lockdown.js")
+const Blacklist = require("./commands/blacklist.js")
 
 // Command Handler
 client.commands = new Discord.Collection();
@@ -84,6 +86,7 @@ client.on('messageReactionRemove', (messageReaction, user) => {
     return user.send("**/" + user.username + "/DM** \n You have been removed from a role on " + messageReaction.message.guild + " from removing a reactrole.")
   }
 })
+
 client.on("guildMemberAdd", member => {
   let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
   if (!logs[member.guild.id]) {
@@ -174,7 +177,6 @@ client.on('message', async message => {
   }
   if (pg[message.guild.id].mode === 1) {
 
-
     // This section will contain swears!
     let swearwords = ["fuck", "nignog", "nig-nog", "nigger", "nig-nog", "ass", "bastard", "bitch", "slut", "pussy", "vagina", "dick", "penis", "bollocks", "crap", "cunt", "frigger", "shit", "niga", "niqqer", "nigqer", "niqger", "niger", "negro", "niglet", "whore", "twat", "gypsy", "fag", "faggot"]
     for (var i = 0; i < swearwords.length; i++) {
@@ -201,6 +203,7 @@ client.on('message', async message => {
       }
     }
   }
+
   let prefixjson = JSON.parse(fs.readFileSync("./prefix.json", "utf8"));
   if (!prefixjson[message.guild.id]) {
     prefixjson[message.guild.id] = {
@@ -209,7 +212,6 @@ client.on('message', async message => {
   }
   let prefix = prefixjson[message.guild.id].prefix
 
-  const Lockdown = require("./commands/lockdown.js")
   let lockdown = JSON.parse(fs.readFileSync("./lockdown.json", "utf8"));
   if (!lockdown[message.guild.id]) {
     lockdown[message.guild.id] = {
@@ -287,7 +289,6 @@ client.on('message', async message => {
     let fullCommand = message.content.substr(1)
     let splitCommand = fullCommand.split(" ")
     let primaryCommand = splitCommand[0]
-    const Blacklist = require("./commands/blacklist.js")
     let blacklist = JSON.parse(fs.readFileSync("./blacklist.json", "utf8"));
     if (!blacklist[message.author.id]) {
       blacklist[message.author.id] = {
