@@ -277,7 +277,6 @@ client.on('message', async message => {
     }
   }
 
-
   let messageArray = message.content.split(" ");
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
