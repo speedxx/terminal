@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
   if (args.length < 1)
     return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "Please supply a name for the channel.")
 
-  let cc = args[0];
+  let cc = args.join(' ');
   let server = message.guild;
   server.createChannel(cc, "text");
   message.channel.send("**/" + server + "/" + server.name + "/** \n  " + "**" + cc + "**" + " has been created")
