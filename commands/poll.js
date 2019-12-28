@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 
 exports.run = async (bot, message, args, ops) => {
-
     // Check for input
-    if (!args || args.length < 1) return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Please provide a question.');
-    
+    if (!args || args.length < 1)
+        return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + 'Please provide a question.');
+
     // Create Embed
     const embed = new Discord.RichEmbed()
         .setColor("#ffffff") //To change color do .setcolor("#fffff")
@@ -16,8 +16,8 @@ exports.run = async (bot, message, args, ops) => {
         .then(function (msg) {
             msg.react("❎");
             msg.react("✅"); // You can only add two reacts
-            message.delete({timeout: 1000});
-            }).catch(function(error) {
+            message.delete({ timeout: 1000 });
+        }).catch(function (error) {
             console.log(error);
         });
 };
