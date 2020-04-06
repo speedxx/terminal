@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
-module.exports.run = async (client, msg, args) => {
-    let user = msg.mentions.users.first() || msg.author
+module.exports.run = async (client, message, args) => {
+    let user = message.mentions.users.first() || message.author
     
-    let dembed = new Discord.RichEmbed()
+    let dembed = new Discord.MessageEmbed()
         .setColor(Math.floor(Math.random() * 16777214) + 1)
         .setAuthor(user.tag)
-        .setImage(user.displayAvatarURL)
-    msg.channel.send("**/" + msg.guild + "/" + msg.channel.name + "/**")
-    return msg.channel.send(dembed);
+        .setImage(user.displayAvatarURL())
+    message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/**")
+    return message.channel.send(dembed);
 }
 module.exports.help = {
     name: "avatar"
