@@ -1,1 +1,0 @@
-- Fix DiscordAPIError: Unknown Emoji for autoreact (12/22/19)
