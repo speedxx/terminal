@@ -45,11 +45,11 @@ module.exports.run = async (bot, message, args) => {
 		}
 		if (logs[message.guild.id].toggle === 1) {
 			const logchannel = message.guild.channels.cache.find(channel => channel.name === "terminal-logs");
-			let eventembed = new Discord.RichEmbed()
+			let eventembed = new Discord.MessageEmbed()
 				.setColor(0x00ff00)
 				.setTitle("Role Event:")
 				.addField("Auto Role:", gRole)
-				.addField("Admin:", message.author)
+				.addField("Admin:", message.author.username)
 				.setTimestamp()
 			logchannel.send(eventembed);
 		}

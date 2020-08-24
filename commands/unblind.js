@@ -4,33 +4,33 @@ const fs = require("fs");
 module.exports.run = async (bot, message, args) => {
 
   if (!message.member.hasPermission("MANAGE_MEMBERS"))
-    return message.channel.send("/" + message.guild + "/" + message.channel.name + "/" + "You do not have sufficient permissions to unblind members.");
+    return message.channel.send("/" + message.guild.name + "/" + message.channel.name + "/" + "You do not have sufficient permissions to unblind members.");
 
   if (!message.guild.me.hasPermission("MANAGE_ROLES"))
-    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to add roles.");
+    return message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + " I do not have sufficient permissions to add roles.");
 
-  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
 
   if (!rMember)
-    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " Couldn't find that user.");
+    return message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + " Couldn't find that user.");
 
   if (rMember === message.author)
-    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + "You cannot unblind yourself.");
+    return message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + "You cannot unblind yourself.");
 
   let role = "Blinded"
-  let gRole = message.guild.roles.find(`name`, role);
+  let gRole = message.guild.roles.cache.find(r => r.id == role)
 
   if (!gRole)
-    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + " The blinded role doesn't exist. Please mute someone first before unmuting them.");
+    return message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + " The blinded role doesn't exist. Please mute someone first before unmuting them.");
 
-  if (!rMember.roles.has(gRole.id))
-    return message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` That person isn't blind.`);
+  if (!rMember.roles.cache.has(gRole.id))
+    return message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + ` That person isn't blind.`);
 
   await (rMember.removeRole(gRole.id));
 
   try {
-    await message.channel.send("**/" + message.guild + "/" + message.channel.name + "/** \n  " + ` Unblinded ${rMember}.`)
-    let logs = JSON.parse(fs.readFileSync("./logs.json", "utf8"));
+    await message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + ` Unblinded ${rMember}.`)
+    let logs = JSON.parse(fs.readFileSync("./json/logs.json", "utf8"));
     if (!logs[message.guild.id]) {
       logs[message.guild.id] = {
         toggle: 0
@@ -38,12 +38,12 @@ module.exports.run = async (bot, message, args) => {
     }
     
     if (logs[message.guild.id].toggle === 1) {
-      const logchannel = message.guild.channels.find(channel => channel.name === "terminal-logs");
-      let eventembed = new Discord.RichEmbed()
+      const logchannel = message.guild.channels.cache.find(channel => channel.name === "terminal-logs");
+      let eventembed = new Discord.MessageEmbed()
         .setColor(0x00ff00)
         .setTitle("Unblind Event:")
         .addField("User Unblinded:", rMember)
-        .addField("Admin:", message.author)
+        .addField("Admin:", message.author.username)
         .setTimestamp()
       logchannel.send(eventembed);
     }

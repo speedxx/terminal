@@ -3,7 +3,7 @@ const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
 
-        let prefixjson = JSON.parse(fs.readFileSync("./prefix.json", "utf8"));
+        let prefixjson = JSON.parse(fs.readFileSync("./json/prefix.json", "utf8"));
         if (!prefixjson[message.guild.id]) {
                 prefixjson[message.guild.id] = {
                         prefix: ">_"

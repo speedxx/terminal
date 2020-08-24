@@ -49,7 +49,7 @@ client.on('messageReactionAdd', (messageReaction, user) => {
 
     if (logs[messageReaction.message.guild.id].toggle === 1) {
       const logchannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === "terminal-logs");
-      let eventembed = new Discord.RichEmbed()
+      let eventembed = new Discord.MessageEmbed()
         .setColor(0x00ff00)
         .setTitle("Flag Event:")
         .addField("Flagged Message:", messageReaction.message)
@@ -87,7 +87,7 @@ client.on("guildMemberAdd", member => {
   }
   if (logs[member.guild.id].toggle === 1) {
     const logchannel = member.guild.channels.cache.find(channel => channel.name === "terminal-logs");
-    let eventembed = new Discord.RichEmbed()
+    let eventembed = new Discord.MessageEmbed()
       .setColor(0x00ff00)
       .setAuthor("Member Join Event:", member.user.displayAvatarURL)
       .addField("User:", member + " (" + member.user.tag + ")")
@@ -115,7 +115,7 @@ client.on("guildMemberRemove", member => {
   }
   if (logs[member.guild.id].toggle === 1) {
     const logchannel = member.guild.channels.cache.find(channel => channel.name === "terminal-logs");
-    let eventembed = new Discord.RichEmbed()
+    let eventembed = new Discord.MessageEmbed()
       .setColor(0xff0000)
       .setAuthor("Member Leave Event:", member.user.displayAvatarURL)
       .addField("User:", member + " (" + member.user.tag + ")")
@@ -238,7 +238,7 @@ client.on('message', async message => {
       message.delete()
       message.channel.send("**/" + message.guild.name + "/" + message.channel.name + "/** \n  " + "Sorry, " + message.author + ", you cannot post discord server invites as administrators have blocked it!")
       const logdelete = message.guild.channels.cache.find(channel => channel.name === "terminal-logs");
-      const dembed2 = new Discord.RichEmbed()
+      const dembed2 = new Discord.MessageEmbed()
         .setAuthor("Attempted Invite")
         .setColor(Math.floor(Math.random() * 16777214) + 1)
         .addField("**/" + message.guild.name + "/" + message.channel.name + "/** \n  ", `${message.author} (${message.author.tag}) tried posting an invite in channel **#${message.channel.name}**.`)
