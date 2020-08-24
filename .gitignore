@@ -1,5 +1,4 @@
-*config.json
-*.json
+/config.json
 .DS_Store
 node_modules/
 .idea/

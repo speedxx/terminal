@@ -1,24 +1,10 @@
 # What is terminal?
 A Moderation Bot, made for Discord with over 50 commands, which is coded in Java Script. The code is open source, may be used, but please credit to this github.
 
-### Who develops terminal?
-`square#1255` (founder, owner), `speed#3413` (co-founder, owner), `fionn#4512` (vps host, owner)
+### Running terminal yourself
+Move `config.json` out of the `json` directory into your main directory, after that fill in the token field and run one of the `runbot` files. If done correctly, all commands should load and terminal should boot.
 
-### Future plans?
-We plan to expand and create more commands for terminal. You may help us by posting [issues](https://github.com/squareGITHUB/terminal/issues) we didn't notice or creating [pull requests](https://github.com/squareGITHUB/terminal/pulls) to help out with development.
-
-### Links?
-[Invitation Link](https://discordapp.com/oauth2/authorize?&client_id=521023036812558356&scope=bot&permissions=8), 
-
-[Discord Support Server](https://discord.gg/4yntzpG), 
-
-[discordbots.org](https://discordbots.org/bot/521023036812558356) ([vote for us here](https://discordbots.org/bot/521023036812558356/vote)), 
-
-[discord.bots.gg](https://discord.bots.gg/bots/521023036812558356),
-
-[Github.io Webpage](https://squaregithub.github.io/terminal/)
-
-### Terminal Prefix
+### Default Terminal Prefix
 `>_`
 
 ### Current Commands
